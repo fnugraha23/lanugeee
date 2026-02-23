@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Studi Kasus Lontara - Implementasi nyata sistem intelijen lingkungan dan GIS."
+    />
+    <title>Case Studies | Lontara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <style>
+      .hero-case {
+        padding: 140px 0 100px;
+        background: var(--bg-light);
+        text-align: center;
+      }
+      .case-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+      .case-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+      .case-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+      .case-image {
+        height: 250px;
+        background-color: #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .case-content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .case-tags {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .tag {
+        font-size: 0.75rem;
+        background: rgba(18, 59, 58, 0.05);
+        color: var(--primary);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      .case-link {
+        margin-top: auto;
+        color: var(--accent);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      @media (max-width: 768px) {
+        .case-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../index.html"
+            ><img
+              src="../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+          /></a>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../solutions/index.html">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="../platform/index.html" class="nav-link-dropdown"
+              >Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a href="../platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="../platform/spatial-ml-engine.html">Spatial ML Engine</a>
+              <a href="../platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="index.html" class="active">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../resources/index.html">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../about/index.html">About</a></div>
+          <a href="../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-case">
+      <div class="container">
+        <h1>Studi Kasus Terpilih</h1>
+        <p
+          style="color: var(--text-muted); max-width: 600px; margin: 20px auto"
+        >
+          Lihat bagaimana kami menerapkan sains lingkungan dan teknologi spasial
+          untuk menyelesaikan masalah nyata.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="case-grid">
+          <article class="case-card reveal-init">
+            <div class="case-image">[ Peta Sub DAS Tanralili ]</div>
+            <div class="case-content">
+              <div class="case-tags">
+                <span class="tag">Watershed</span
+                ><span class="tag">GIS Analysis</span>
+              </div>
+              <h3>Optimasi Tata Guna Lahan Sub DAS Tanralili</h3>
+              <p style="color: var(--text-muted); margin-bottom: 20px">
+                Evaluasi kinerja Daerah Aliran Sungai di Sulawesi Selatan
+                menggunakan integrasi data LULC, jenis tanah, dan kelerengan
+                untuk rekomendasi konservasi.
+              </p>
+              <a href="subdas-tanralili.html" class="case-link"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </article>
+
+          <article class="case-card reveal-init">
+            <div class="case-image">[ Dashboard ML Python ]</div>
+            <div class="case-content">
+              <div class="case-tags">
+                <span class="tag">Python</span
+                ><span class="tag">Machine Learning</span>
+              </div>
+              <h3>Automasi Evaluasi Kesesuaian Lahan (Land ML)</h3>
+              <p style="color: var(--text-muted); margin-bottom: 20px">
+                Pengembangan algoritma berbasis Python untuk mengotomatisasi
+                proses pencocokan lahan (*land matching*) ribuan unit lahan
+                secara simultan.
+              </p>
+              <a href="land-ml-project.html" class="case-link"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </article>
+
+          <article class="case-card reveal-init">
+            <div class="case-image">[ Simulasi Hidrologi ]</div>
+            <div class="case-content">
+              <div class="case-tags">
+                <span class="tag">Hydrology</span
+                ><span class="tag">Modeling</span>
+              </div>
+              <h3>Sistem Pemodelan Hidrologi Berbasis Data</h3>
+              <p style="color: var(--text-muted); margin-bottom: 20px">
+                Simulasi limpasan permukaan (*runoff*) dan prediksi erosi
+                menggunakan data curah hujan historis dan koefisien tanaman.
+              </p>
+              <a href="hydrology-model.html" class="case-link"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div><p>&copy; 2026 Lontara. All rights reserved.</p></div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

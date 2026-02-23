@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jurnal, wawasan, dan riset teknis dari Lontara seputar Geospasial, Machine Learning, dan Lingkungan."
+    />
+    <title>Research & Insights | Lontara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <style>
+      .hero-research {
+        padding: 140px 0 100px;
+        background-color: var(--bg-light);
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      .article-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+        border-color: var(--accent);
+      }
+      .article-image {
+        height: 200px;
+        background: #f0f2f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .article-content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .article-meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .article-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--text-main);
+        line-height: 1.4;
+      }
+      .article-content p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+      .read-more {
+        color: var(--primary);
+        font-weight: 600;
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .read-more:hover {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../index.html"
+            ><img
+              src="../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+          /></a>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../solutions/index.html">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="../platform/index.html" class="nav-link-dropdown"
+              >Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a href="../platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="../platform/spatial-ml-engine.html">Spatial ML Engine</a>
+              <a href="../platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="../case-studies/index.html">Case Studies</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="index.html" class="active">Research</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="../resources/index.html">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../about/index.html">About</a></div>
+          <a href="../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-research">
+      <div class="container">
+        <h1 style="font-size: 3rem; margin-bottom: 20px">Riset & Wawasan</h1>
+        <p
+          style="
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+          "
+        >
+          Eksplorasi teknis, metodologi, dan pemikiran mendalam kami seputar
+          integrasi sains geospasial, hidrologi, dan kecerdasan buatan.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-3">
+          <article class="article-card reveal-init">
+            <div class="article-image">[ Gambar Ilustrasi GIS ]</div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span>Fundamental</span><span>5 Min Read</span>
+              </div>
+              <h3>Paradigma Baru GIS dalam Evaluasi Lahan</h3>
+              <p>
+                Mengapa pemetaan statis tidak lagi cukup, dan bagaimana analisis
+                dinamis mengubah cara kita merencanakan penggunaan lahan
+                pertanian.
+              </p>
+              <a href="gis-fundamentals.html" class="read-more"
+                >Baca Artikel &rarr;</a
+              >
+            </div>
+          </article>
+
+          <article class="article-card reveal-init">
+            <div class="article-image">[ Gambar Ilustrasi AI / ML ]</div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span>Machine Learning</span><span>8 Min Read</span>
+              </div>
+              <h3>Memahami Spatial Machine Learning</h3>
+              <p>
+                Panduan teknis penerapan Random Forest dan Support Vector
+                Machine untuk klasifikasi tutupan lahan (LULC) secara otomatis.
+              </p>
+              <a href="spatial-ml-explained.html" class="read-more"
+                >Baca Artikel &rarr;</a
+              >
+            </div>
+          </article>
+
+          <article class="article-card reveal-init">
+            <div class="article-image">[ Gambar Workflow ArcGIS ]</div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span>Data Engineering</span><span>6 Min Read</span>
+              </div>
+              <h3>Automasi Workflow ArcGIS untuk Analisis DAS</h3>
+              <p>
+                Meninggalkan klik manual: Membangun skrip Python (ArcPy) untuk
+                mengekstraksi parameter hidrologi Daerah Aliran Sungai secara
+                massal.
+              </p>
+              <a href="arcgis-workflow.html" class="read-more"
+                >Baca Artikel &rarr;</a
+              >
+            </div>
+          </article>
+
+          <article class="article-card reveal-init">
+            <div class="article-image">[ Gambar Arsitektur Server ]</div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span>WebGIS</span><span>10 Min Read</span>
+              </div>
+              <h3>Arsitektur WebGIS Modern (Open Source)</h3>
+              <p>
+                Membongkar *tech-stack* dari PostGIS, GeoServer, hingga Frontend
+                React untuk membangun portal geospasial kelas Enterprise.
+              </p>
+              <a href="webgis-architecture.html" class="read-more"
+                >Baca Artikel &rarr;</a
+              >
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div><p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p></div>
+      </div>
+    </footer>
+    <script src="../js/utils.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

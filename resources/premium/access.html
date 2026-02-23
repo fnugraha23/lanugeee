@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unlock Premium Toolkit | Lontara</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+
+    <style>
+      body {
+        background: var(--bg-main);
+      }
+      .gated-section {
+        padding: 80px 0;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gated-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 50px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        border-top: 4px solid var(--accent);
+      }
+      .gated-card h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+      .gated-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-family: "Manrope", sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition: var(--transition);
+        background: var(--bg-main);
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(0, 184, 169, 0.1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../../index.html"
+            ><img
+              src="../../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+          /></a>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../../solutions/index.html">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="../../platform/index.html" class="nav-link-dropdown"
+              >Platform<svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+            <div class="dropdown">
+              <a href="../../platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="../../platform/spatial-ml-engine.html"
+                >Spatial ML Engine</a
+              >
+              <a href="../../platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="../../case-studies/index.html">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../index.html" class="active">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../../about/index.html">About</a></div>
+          <a href="../../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="gated-section">
+      <div class="container" style="display: flex; justify-content: center">
+        <div class="gated-card reveal-init">
+          <svg
+            style="margin: 0 auto 15px; color: var(--accent)"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <h2>Akses Enterprise Toolkit</h2>
+          <p>
+            Masukkan detail instansi atau profesional Anda untuk membuka kunci
+            file premium Lontara secara gratis ke kotak masuk Anda.
+          </p>
+
+          <form id="gated-access-form">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Profesional / Instansi</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@institusi.go.id"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="toolkit">Pilih Toolkit</label>
+              <select id="toolkit" name="toolkit" required>
+                <option value="">-- Pilih Akses Premium --</option>
+                <option value="raster">Raster Automation Toolkit (.py)</option>
+                <option value="landml">Land Suitability ML Kit (.ipynb)</option>
+                <option value="webgis">WebGIS Pro Architecture (Docker)</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary"
+              style="width: 100%; margin-top: 10px"
+            >
+              Kirim Tautan Akses ke Email
+            </button>
+          </form>
+
+          <p style="font-size: 0.75rem; margin-top: 20px; color: #9ca3af">
+            * Kami tidak membagikan email Anda kepada pihak ketiga.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/animation.js"></script>
+    <script src="../../js/form-handler.js"></script>
+    <script src="../../js/main.js"></script>
+  </body>
+</html>

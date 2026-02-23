@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lontara - Intelligent Systems for Environmental & Land Management. Spatial data infrastructures and modeling."
+    />
+    <title>Lontara | Environmental & Land Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      /* Styling khusus untuk Iframe WebGIS di Halaman Utama */
+      .webgis-section {
+        padding: 60px 0;
+        background-color: var(--bg-light);
+      }
+      .webgis-container {
+        width: 100%;
+        height: 600px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        background: #1e1e2f; /* Menyesuaikan background sidebar WebGIS Anda */
+      }
+      .webgis-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      @media (max-width: 768px) {
+        .webgis-container {
+          height: 450px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+            />
+          </a>
+        </div>
+
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="solutions/index.html">Solutions</a>
+          </div>
+
+          <div class="nav-item has-dropdown">
+            <a href="platform/index.html" class="nav-link-dropdown">
+              Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a href="platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="platform/spatial-ml-engine.html">Spatial ML Engine</a>
+              <a href="platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="case-studies/index.html">Case Studies</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="research/index.html">Research</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="resources/index.html">Resources</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="publications/index.html">Publications</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="about/index.html">About</a>
+          </div>
+
+          <a href="contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Intelligent Systems for Environmental & Land Management</h1>
+        <p>
+          Lontara designs structured spatial data infrastructures, environmental
+          modeling systems, and interactive geospatial platforms for informed
+          land management decisions.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="solutions/index.html" class="btn-primary"
+            >Explore Solutions</a
+          >
+          <a href="platform/index.html" class="btn-secondary">View Platform</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="webgis-section">
+      <div class="container">
+        <h2 class="section-title">Interactive Spatial Intelligence</h2>
+        <p class="section-subtitle">
+          Live Preview: Ekplorasi infrastruktur data spasial terintegrasi untuk
+          Sub DAS Tanralili. Gunakan fitur interaktif untuk melihat atribut
+          LULC, Tanah, dan Geologi.
+        </p>
+
+        <div class="webgis-container reveal-init">
+          <iframe
+            src="webgis/indeks.html"
+            title="WebGIS Sub DAS Tanralili"
+            class="webgis-iframe"
+          >
+          </iframe>
+        </div>
+
+        <div class="center-btn" style="margin-top: 25px">
+          <p
+            style="
+              font-size: 0.85rem;
+              color: var(--text-muted);
+              font-style: italic;
+            "
+          >
+            * Klik pada poligon peta untuk memunculkan panel informasi atribut
+            di sisi kiri peta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Core Capabilities</h2>
+        <div class="grid-4">
+          <div class="card">
+            <h3>Environmental Intelligence</h3>
+            <p>
+              Watershed modeling, land suitability evaluation, and environmental
+              monitoring systems designed for sustainable planning.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Spatial Data Engineering</h3>
+            <p>
+              Geospatial preprocessing pipelines, raster-vector automation, and
+              analytical structuring for environmental datasets.
+            </p>
+          </div>
+          <div class="card">
+            <h3>WebGIS & Dashboards</h3>
+            <p>
+              Interactive spatial platforms enabling monitoring, reporting, and
+              spatial decision support.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Spatial Machine Learning</h3>
+            <p>
+              Predictive modeling and classification frameworks tailored for
+              environmental intelligence systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Solutions</h2>
+        <p class="section-subtitle">
+          Custom-built spatial systems addressing environmental and land
+          management challenges across institutions and projects.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <a href="solutions/watershed-modeling.html" class="card-link">
+              <h3>Watershed & Hydrological Modeling</h3>
+              <p>
+                Runoff simulation, flood risk evaluation, and watershed
+                performance assessment.
+              </p>
+            </a>
+          </div>
+          <div class="card">
+            <a href="solutions/land-suitability.html" class="card-link">
+              <h3>Land Suitability Systems</h3>
+              <p>
+                Multi-criteria spatial analysis integrated with predictive
+                modeling techniques.
+              </p>
+            </a>
+          </div>
+          <div class="card">
+            <a href="solutions/environmental-monitoring.html" class="card-link">
+              <h3>Environmental Monitoring Platforms</h3>
+              <p>
+                Integrated spatial dashboards for continuous environmental
+                oversight.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">
+          Developing Scalable Environmental Platforms
+        </h2>
+        <p class="section-subtitle">
+          Beyond consulting, Lontara is building structured digital frameworks
+          and scalable spatial intelligence platforms for long-term impact.
+        </p>
+        <div class="center-btn">
+          <a href="platform/index.html" class="btn-primary"
+            >Explore Platform Vision</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Selected Case Studies</h2>
+        <div class="grid-3">
+          <div class="card">
+            <a href="case-studies/subdas-tanralili.html" class="card-link">
+              <h3>Sub DAS Tanralili</h3>
+              <p>
+                Integrated WebGIS dashboard combining LULC, soil, geology, and
+                planning datasets for spatial analysis.
+              </p>
+            </a>
+          </div>
+          <div class="card">
+            <a href="case-studies/land-ml-project.html" class="card-link">
+              <h3>Land ML Classification</h3>
+              <p>
+                Machine learning workflow for predictive land suitability
+                modeling.
+              </p>
+            </a>
+          </div>
+          <div class="card">
+            <a href="case-studies/hydrology-model.html" class="card-link">
+              <h3>Hydrological Modeling System</h3>
+              <p>
+                Data-driven watershed performance evaluation and runoff
+                modeling.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Let’s Build Intelligent Environmental Systems</h2>
+        <a href="contact/index.html" class="btn-primary">Get in Touch</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div>
+          <p>&copy; 2026 Lontara. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

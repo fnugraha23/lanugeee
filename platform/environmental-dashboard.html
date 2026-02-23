@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lontara Environmental Dashboard - Interactive WebGIS platform for real-time spatial monitoring and reporting."
+    />
+    <title>Environmental Dashboard | Lontara Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <style>
+      .hero-product {
+        padding: 160px 0 100px;
+        background: linear-gradient(to bottom, var(--bg-main), var(--bg-light));
+        text-align: center;
+      }
+      .product-badge {
+        display: inline-block;
+        background: rgba(0, 184, 169, 0.1);
+        color: var(--accent);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              src="../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+            />
+          </a>
+        </div>
+
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../solutions/index.html">Solutions</a>
+          </div>
+
+          <div class="nav-item has-dropdown">
+            <a href="index.html" class="nav-link-dropdown active">
+              Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a
+                href="environmental-dashboard.html"
+                style="color: var(--primary); font-weight: 600"
+                >Environmental Dashboard</a
+              >
+              <a href="spatial-ml-engine.html">Spatial ML Engine</a>
+              <a href="data-engineering-tools.html">Data Engineering Tools</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="../case-studies/index.html">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../resources/index.html">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../about/index.html">About</a></div>
+
+          <a href="../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-product">
+      <div class="container hero-content" style="margin: 0 auto">
+        <span class="product-badge">Flagship Platform</span>
+        <h1 style="font-size: 3rem; margin-bottom: 24px">
+          Environmental Dashboard
+        </h1>
+        <p
+          style="
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 40px;
+          "
+        >
+          An interactive WebGIS platform designed for real-time spatial
+          monitoring, automated reporting, and data-driven decision making for
+          sustainable land management.
+        </p>
+
+        <div class="hero-buttons" style="justify-content: center">
+          <a href="../contact/index.html" class="btn-primary">Request Demo</a>
+          <a href="#features" class="btn-secondary">Explore Features</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Core Features</h2>
+        <p class="section-subtitle">
+          Everything you need to monitor watershed performance and land use
+          changes in one structured interface.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Interactive WebGIS</h3>
+            <p>
+              Seamlessly visualize raster and vector datasets with
+              high-performance rendering capabilities, directly in your browser.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Dynamic Analytics</h3>
+            <p>
+              On-the-fly spatial querying and statistical reporting for selected
+              polygons, catchments, or administrative boundaries.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Automated Reporting</h3>
+            <p>
+              Generate comprehensive environmental compliance and monitoring
+              reports with automated spatial data extraction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center"
+        >
+          <div style="flex: 1; min-width: 300px">
+            <h2 class="section-title">Seamless Data Integration</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px">
+              The Environmental Dashboard is built to sit on top of your
+              existing data infrastructure. Whether you use enterprise
+              geodatabases, cloud storage, or real-time IoT sensors, our
+              platform aggregates it perfectly.
+            </p>
+            <ul
+              style="
+                list-style: none;
+                color: var(--text-muted);
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+              "
+            >
+              <li>✓ Support for GeoJSON, Shapefiles, & GeoTIFFs</li>
+              <li>✓ API integration for real-time sensor data</li>
+              <li>✓ Built with Python and modern WebGIS frameworks</li>
+            </ul>
+          </div>
+
+          <div
+            style="
+              flex: 1;
+              min-width: 300px;
+              background: var(--border);
+              border-radius: var(--radius);
+              height: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <p style="color: var(--text-muted); font-weight: 600">
+              [ Dashboard Interface Mockup / Image ]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to deploy spatial intelligence?</h2>
+        <p style="margin-bottom: 30px; opacity: 0.9">
+          Integrate our Environmental Dashboard into your organizational
+          workflow.
+        </p>
+        <a
+          href="../contact/index.html"
+          class="btn-primary"
+          style="background: white; color: var(--primary)"
+          >Schedule a Consultation</a
+        >
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div>
+          <p>&copy; 2026 Lontara. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

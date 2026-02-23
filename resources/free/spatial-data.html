@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sampel Dataset Spasial | Lontara Free Resources</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <style>
+      .resource-header {
+        padding: 120px 0 60px;
+        background: var(--bg-light);
+        border-bottom: 1px solid var(--border);
+      }
+      .download-box {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        margin-top: -40px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+      .download-info {
+        flex: 2;
+      }
+      .download-action {
+        flex: 1;
+        text-align: center;
+        padding: 30px;
+        background: var(--bg-main);
+        border-radius: 12px;
+      }
+      @media (max-width: 768px) {
+        .download-box {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../../index.html"
+            ><img
+              src="../../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+          /></a>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../../solutions/index.html">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="../../platform/index.html" class="nav-link-dropdown"
+              >Platform<svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+            <div class="dropdown">
+              <a href="../../platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="../../platform/spatial-ml-engine.html"
+                >Spatial ML Engine</a
+              >
+              <a href="../../platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="../../case-studies/index.html">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../index.html" class="active">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../../about/index.html">About</a></div>
+          <a href="../../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="resource-header">
+      <div class="container">
+        <a
+          href="../index.html"
+          style="
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+          "
+          >&larr; Kembali ke Resources</a
+        >
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px">
+          Sampel Dataset Spasial Evaluasi Lahan
+        </h1>
+        <p
+          style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px"
+        >
+          Data vektor format Shapefile (.shp) dan GeoJSON yang telah dibersihkan
+          topologinya untuk simulasi tumpang susun (overlay).
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0">
+      <div class="container">
+        <div class="download-box reveal-init">
+          <div class="download-info">
+            <h3 style="margin-bottom: 15px">Spesifikasi Data</h3>
+            <ul
+              style="
+                color: var(--text-muted);
+                padding-left: 20px;
+                line-height: 1.8;
+              "
+            >
+              <li><strong>Sistem Koordinat:</strong> WGS 84 (EPSG:4326)</li>
+              <li>
+                <strong>Isi Data:</strong> Peta Jenis Tanah, Peta Kelerengan
+                (Slope), dan Curah Hujan untuk 1 area sampel.
+              </li>
+              <li>
+                <strong>Atribut:</strong> Telah dilengkapi dengan kolom skoring
+                klasifikasi kesesuaian dasar.
+              </li>
+            </ul>
+          </div>
+          <div class="download-action">
+            <p
+              style="
+                margin-bottom: 10px;
+                font-weight: 600;
+                color: var(--primary);
+              "
+            >
+              Open Source & Gratis
+            </p>
+            <a
+              href="#"
+              class="btn-primary"
+              style="width: 100%; display: block; margin-bottom: 15px"
+              >Unduh Dataset (.zip)</a
+            >
+            <p style="font-size: 0.8rem; color: var(--text-muted)">
+              Ukuran File: 4.2 MB
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div><p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p></div>
+      </div>
+    </footer>
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/animation.js"></script>
+    <script src="../../js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+/* =====================================================
+   LONTARA — COMPONENTS (Buttons, Cards, Animations)
+===================================================== */
+
+/* =========================
+   SCROLL PROGRESS BAR
+========================= */
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.1s linear;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary,
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.center-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 14px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Jika kartu dijadikan Link seutuhnya */
+a.card-link {
+  display: block;
+  height: 100%;
+}
+a.card-link:hover {
+  color: inherit;
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal-init {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}

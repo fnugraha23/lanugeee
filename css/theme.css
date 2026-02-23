@@ -1,0 +1,52 @@
+/* =====================================================
+   LONTARA — THEME & VARIABLES
+===================================================== */
+
+:root {
+  --primary: #123b3a;
+  --primary-dark: #0e2f2e;
+  --accent: #00b8a9;
+
+  --bg-main: #f7faf9;
+  --bg-light: #ffffff;
+
+  --text-main: #1a1a1a;
+  --text-muted: #6b7280;
+
+  --border: #e5e7eb;
+
+  --radius: 14px;
+  --container: 1200px;
+
+  --transition: all 0.3s ease;
+}
+
+/* =========================
+   RESET & BASE TYPOGRAPHY
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

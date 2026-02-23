@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lontara Spatial ML Engine - Pemodelan prediktif dan klasifikasi otomatis untuk analisis lingkungan dan kesesuaian lahan."
+    />
+    <title>Spatial ML Engine | Lontara Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <style>
+      .hero-product {
+        padding: 160px 0 100px;
+        background: linear-gradient(to bottom, var(--bg-main), var(--bg-light));
+        text-align: center;
+      }
+      .product-badge {
+        display: inline-block;
+        background: rgba(0, 184, 169, 0.1);
+        color: var(--accent);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              src="../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+            />
+          </a>
+        </div>
+
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../solutions/index.html">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="index.html" class="nav-link-dropdown active">
+              Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a href="environmental-dashboard.html">Environmental Dashboard</a>
+              <a
+                href="spatial-ml-engine.html"
+                style="color: var(--primary); font-weight: 600"
+                >Spatial ML Engine</a
+              >
+              <a href="data-engineering-tools.html">Data Engineering Tools</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="../case-studies/index.html">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../resources/index.html">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../about/index.html">About</a></div>
+          <a href="../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-product">
+      <div class="container hero-content" style="margin: 0 auto">
+        <span class="product-badge">Advanced Analytics</span>
+        <h1 style="font-size: 3rem; margin-bottom: 24px">Spatial ML Engine</h1>
+        <p
+          style="
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 40px;
+          "
+        >
+          Berpindah dari analisis spasial statis ke pemodelan prediktif. Mesin
+          *Machine Learning* kami dirancang khusus untuk memecahkan kompleksitas
+          klasifikasi lahan, prediksi hidrologi, dan evaluasi kesesuaian secara
+          otomatis.
+        </p>
+        <div class="hero-buttons" style="justify-content: center">
+          <a href="../contact/index.html" class="btn-primary">Jadwalkan Demo</a>
+          <a href="#features" class="btn-secondary">Lihat Kapabilitas</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Kapabilitas Inti (Core Features)</h2>
+        <p class="section-subtitle">
+          Algoritma cerdas yang mengubah tumpukan data geospasial menjadi
+          wawasan yang dapat ditindaklanjuti.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Evaluasi Kesesuaian Lahan</h3>
+            <p>
+              Sistem evaluasi multikriteria berbasis algoritma cerdas untuk
+              menentukan potensi komoditas pertanian berdasarkan parameter
+              tanah, iklim, dan topografi.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Klasifikasi Tutupan Lahan (LULC)</h3>
+            <p>
+              Otomatisasi ekstraksi citra satelit menggunakan model klasifikasi
+              tingkat lanjut untuk memantau deforestasi dan perubahan lahan
+              secara berkala.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Prediksi Kinerja Daerah Aliran Sungai</h3>
+            <p>
+              Pemodelan limpasan permukaan (*runoff*) dan identifikasi zona
+              rawan banjir menggunakan integrasi data hidrologi historis dan
+              proyeksi iklim.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center"
+        >
+          <div style="flex: 1; min-width: 300px">
+            <h2 class="section-title">Ditenagai oleh Data Science & Python</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px">
+              Engine kami tidak bergantung pada kotak hitam (*black-box*).
+              Dibangun di atas ekosistem Python yang tangguh, memastikan akurasi
+              saintifik tinggi yang dapat divalidasi oleh para ahli lingkungan
+              dan ilmu tanah.
+            </p>
+            <ul
+              style="
+                list-style: none;
+                color: var(--text-muted);
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+              "
+            >
+              <li>
+                ✓ Integrasi algoritma Random Forest, SVM, dan Neural Networks
+              </li>
+              <li>✓ Pemrosesan model langsung dari format raster (GeoTIFF)</li>
+              <li>✓ Akurasi tervalidasi melalui metode *Ground Truth*</li>
+            </ul>
+          </div>
+          <div
+            style="
+              flex: 1;
+              min-width: 300px;
+              background: #e5e7eb;
+              border-radius: var(--radius);
+              height: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <p style="color: var(--text-muted); font-weight: 600">
+              [ Diagram Workflow Model ML ]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Ingin menerapkan model prediktif pada data Anda?</h2>
+        <p style="margin-bottom: 30px; opacity: 0.9">
+          Diskusikan kebutuhan klasifikasi atau evaluasi lahan Anda dengan tim
+          ahli kami.
+        </p>
+        <a
+          href="../contact/index.html"
+          class="btn-primary"
+          style="background: white; color: var(--primary)"
+          >Hubungi Lontara</a
+        >
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div>
+          <p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

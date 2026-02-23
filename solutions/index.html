@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Layanan Konsultasi Lontara - Pemodelan hidrologi, evaluasi kesesuaian lahan, dan pengembangan WebGIS kustom untuk manajemen lingkungan."
+    />
+    <title>Consulting Solutions | Lontara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <style>
+      .hero-solutions {
+        padding: 140px 0 100px;
+        background-color: var(--primary);
+        color: white;
+        text-align: center;
+      }
+      .hero-solutions h1 {
+        font-size: 3rem;
+        margin-bottom: 24px;
+        color: white;
+      }
+      .hero-solutions p {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--bg-light);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 40px;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .service-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+      }
+      .service-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+      .service-card p {
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        flex-grow: 1;
+      }
+      .service-link {
+        color: var(--accent);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .service-link:hover {
+        color: var(--primary);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../index.html"
+            ><img
+              src="../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+          /></a>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="index.html" class="active">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="../platform/index.html" class="nav-link-dropdown">
+              Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a href="../platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="../platform/spatial-ml-engine.html">Spatial ML Engine</a>
+              <a href="../platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="../case-studies/index.html">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../resources/index.html">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../about/index.html">About</a></div>
+          <a href="../contact/index.html" class="nav-cta">Contact</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-solutions">
+      <div class="container">
+        <h1>Layanan Konsultasi Ahli</h1>
+        <p>
+          Pendekatan berbasis data spasial dan sains lingkungan terapan untuk
+          memecahkan tantangan pengelolaan lahan dan Daerah Aliran Sungai (DAS).
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-3">
+          <div class="service-card reveal-init">
+            <h3>Pemodelan Hidrologi & DAS</h3>
+            <p>
+              Analisis kinerja DAS, simulasi limpasan permukaan (*runoff*), dan
+              strategi konservasi tanah dan air yang akurat.
+            </p>
+            <a href="watershed-modeling.html" class="service-link"
+              >Pelajari Lebih Lanjut &rarr;</a
+            >
+          </div>
+
+          <div class="service-card reveal-init">
+            <h3>Evaluasi Kesesuaian Lahan</h3>
+            <p>
+              Penilaian komprehensif untuk peruntukan lahan pertanian (seperti
+              komoditas hidroponik atau konvensional) berbasis kriteria spasial
+              dan fisik tanah.
+            </p>
+            <a href="land-suitability.html" class="service-link"
+              >Pelajari Lebih Lanjut &rarr;</a
+            >
+          </div>
+
+          <div class="service-card reveal-init">
+            <h3>Pemantauan Lingkungan</h3>
+            <p>
+              Sistem *monitoring* perubahan tutupan lahan, indeks vegetasi, dan
+              parameter lingkungan kritis secara berkala.
+            </p>
+            <a href="environmental-monitoring.html" class="service-link"
+              >Pelajari Lebih Lanjut &rarr;</a
+            >
+          </div>
+
+          <div class="service-card reveal-init">
+            <h3>Sistem Pendukung Keputusan Spasial</h3>
+            <p>
+              Pengembangan kerangka kerja analitik untuk membantu pemangku
+              kepentingan dalam perencanaan tata ruang.
+            </p>
+            <a href="spatial-decision-support.html" class="service-link"
+              >Pelajari Lebih Lanjut &rarr;</a
+            >
+          </div>
+
+          <div class="service-card reveal-init">
+            <h3>Custom WebGIS</h3>
+            <p>
+              Pembuatan dasbor spasial interaktif dan portal geoportal khusus
+              yang disesuaikan dengan infrastruktur data instansi Anda.
+            </p>
+            <a href="custom-webgis.html" class="service-link"
+              >Pelajari Lebih Lanjut &rarr;</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Butuh Pendekatan Kustom untuk Proyek Anda?</h2>
+        <p style="margin-bottom: 30px; opacity: 0.9">
+          Mari diskusikan lingkup teknis dan kerangka kerja metodologi bersama
+          kami.
+        </p>
+        <a
+          href="../contact/index.html"
+          class="btn-primary"
+          style="background: white; color: var(--primary)"
+          >Jadwalkan Konsultasi</a
+        >
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div><p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p></div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

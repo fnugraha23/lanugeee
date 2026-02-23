@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hubungi Lontara | Contact Us</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <style>
+      .contact-section {
+        padding: 120px 0;
+        background: var(--bg-main);
+        min-height: 80vh;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        padding-top: 20px;
+      }
+      .contact-info h1 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+      .contact-info p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+      }
+      .info-block {
+        margin-bottom: 25px;
+      }
+      .info-block h4 {
+        color: var(--primary);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .info-block p {
+        color: var(--text-muted);
+      }
+
+      .contact-form-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-family: "Manrope", sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition: var(--transition);
+        background: var(--bg-main);
+      }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: var(--accent);
+        background: white;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      @media (max-width: 800px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              src="../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+            />
+          </a>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../solutions/index.html">Solutions</a>
+          </div>
+          <div class="nav-item has-dropdown">
+            <a href="../platform/index.html" class="nav-link-dropdown">
+              Platform
+              <svg
+                class="arrow-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown">
+              <a href="../platform/environmental-dashboard.html"
+                >Environmental Dashboard</a
+              >
+              <a href="../platform/spatial-ml-engine.html">Spatial ML Engine</a>
+              <a href="../platform/data-engineering-tools.html"
+                >Data Engineering Tools</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="../case-studies/index.html">Case Studies</a>
+          </div>
+          <div class="nav-item">
+            <a href="../research/index.html">Research</a>
+          </div>
+          <div class="nav-item">
+            <a href="../resources/index.html">Resources</a>
+          </div>
+          <div class="nav-item">
+            <a href="../publications/index.html">Publications</a>
+          </div>
+          <div class="nav-item"><a href="../about/index.html">About</a></div>
+
+          <a
+            href="index.html"
+            class="nav-cta"
+            style="background: var(--primary-dark)"
+            >Contact</a
+          >
+        </nav>
+        <button class="nav-toggle" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal-init">
+            <h1>Mari Membangun Solusi Bersama</h1>
+            <p>
+              Jadwalkan sesi konsultasi gratis untuk mendiskusikan kebutuhan
+              arsitektur spasial, pemodelan DAS, atau pengembangan produk Anda.
+            </p>
+
+            <div class="info-block">
+              <h4>Email Langsung</h4>
+              <p>lontaraai@gmail.com</p>
+            </div>
+            <div class="info-block">
+              <h4>Lokasi Studio</h4>
+              <p>Bogor, Jawa Barat<br />Indonesia</p>
+            </div>
+            <div class="info-block" style="margin-top: 40px">
+              <a
+                href="https://linkedin.com/in/fajar-nugraha"
+                target="_blank"
+                style="color: var(--accent); font-weight: 700"
+                >Terhubung di LinkedIn &rarr;</a
+              >
+            </div>
+          </div>
+
+          <div class="contact-form-card reveal-init">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Cth: Budi Santoso"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="Cth: budi@instansi.go.id"
+                />
+              </div>
+              <div class="form-group">
+                <label for="service">Ketertarikan Layanan</label>
+                <select id="service" required>
+                  <option value="">-- Pilih Layanan --</option>
+                  <option value="Pemodelan Hidrologi & DAS">
+                    Pemodelan Hidrologi & DAS
+                  </option>
+                  <option value="Evaluasi Kesesuaian Lahan">
+                    Evaluasi Kesesuaian Lahan
+                  </option>
+                  <option value="Pengembangan Custom WebGIS">
+                    Pengembangan Custom WebGIS
+                  </option>
+                  <option value="Spatial Machine Learning">
+                    Spatial Machine Learning
+                  </option>
+                  <option value="Pertanyaan Umum">
+                    Lainnya / Pertanyaan Umum
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Pesan / Deskripsi Proyek</label>
+                <textarea
+                  id="message"
+                  required
+                  placeholder="Ceritakan secara singkat masalah atau kebutuhan spasial yang ingin Anda selesaikan..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width: 100%">
+                Kirim Pesan via Gmail
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div>
+          <h4>Lontara</h4>
+          <p>Environmental & Land Intelligence Studio.</p>
+        </div>
+        <div><p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p></div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/form-handler.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
