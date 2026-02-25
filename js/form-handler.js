@@ -1,80 +1,60 @@
 /* ======================================================
-   LONTARA — FORM HANDLER (FIXED DATA INTEGRATION)
+   LONTARA — GLOBAL FORM HANDLER (EMAILJS)
+   Mendukung Form Kontak & Premium Toolkit
 ====================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Inisialisasi EmailJS dengan Public Key Lontara
+  // 1. Inisialisasi Kredensial EmailJS Lontara
+  // Menggunakan Public Key resmi Anda
   emailjs.init("UYXE1DX3pWfcDCIU8");
 
-  const contactForm = document.getElementById("contact-form");
-  const gatedForm = document.getElementById("gated-access-form");
-
-  // 2. Kredensial Lontara
   const serviceID = "service_1gevel5";
-  const templateID = "template_n753lnf"; 
+  const templateID = "template_n753lnf";
 
-  /* --- 1. GENERAL CONTACT FORM HANDLER --- */
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
+  /**
+   * Fungsi Helper untuk Menangani Pengiriman Form
+   * @param {string} formId - ID elemen form di HTML
+   * @param {string} successMessage - Pesan yang muncul saat berhasil
+   */
+  const setupFormHandler = (formId, successMessage) => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const btn = contactForm.querySelector("button[type='submit']");
-      const originalText = btn ? btn.innerText : "Kirim Pesan";
+      const btn = form.querySelector("button[type='submit']");
+      const originalText = btn ? btn.innerText : "Kirim";
 
+      // Memberikan feedback visual (Loading state)
       if (btn) {
-        btn.innerText = "Mengirim...";
+        btn.innerText = "Sedang Memproses...";
         btn.disabled = true;
       }
 
-      // PERBAIKAN: Menggunakan selector string '#contact-form' 
-      // agar EmailJS menarik ulang semua atribut 'name' dari DOM secara paksa.
-      emailjs.sendForm(serviceID, templateID, '#contact-form')
-        .then(function() {
-            alert("Sukses! Pesan Anda telah terkirim ke tim Lontara.");
-            contactForm.reset();
-            if (btn) {
-              btn.innerText = originalText;
-              btn.disabled = false;
-            }
-        }, function(error) {
-            alert("Gagal mengirim pesan. Error: " + JSON.stringify(error));
-            if (btn) {
-              btn.innerText = originalText;
-              btn.disabled = false;
-            }
+      // Mengirim data menggunakan ID selector untuk akurasi parameter 100%
+      emailjs.sendForm(serviceID, templateID, `#${formId}`)
+        .then(() => {
+          alert(successMessage);
+          form.reset();
+        })
+        .catch((error) => {
+          alert("Terjadi kesalahan teknis: " + JSON.stringify(error));
+        })
+        .finally(() => {
+          // Mengembalikan tombol ke kondisi semula
+          if (btn) {
+            btn.innerText = originalText;
+            btn.disabled = false;
+          }
         });
     });
-  }
+  };
 
-  /* --- 2. GATED CONTENT HANDLER --- */
-  if (gatedForm) {
-    gatedForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+  // 2. Daftarkan Form yang Tersedia di Website
+  // Handler untuk Form Kontak Utama
+  setupFormHandler("contact-form", "Sukses! Pesan Anda telah terkirim ke tim Lontara.");
 
-      const btn = gatedForm.querySelector("button[type='submit']");
-      const originalText = btn ? btn.innerText : "Kirim Permintaan";
-      
-      if (btn) {
-        btn.innerText = "Memproses...";
-        btn.disabled = true;
-      }
-
-      // Menggunakan selector string '#gated-access-form'.
-      emailjs.sendForm(serviceID, templateID, '#gated-access-form')
-        .then(function() {
-            alert("Sukses! Permintaan akses toolkit Anda telah kami terima.");
-            gatedForm.reset();
-            if (btn) {
-              btn.innerText = originalText;
-              btn.disabled = false;
-            }
-        }, function(error) {
-            alert("Terjadi kesalahan. Error: " + JSON.stringify(error));
-            if (btn) {
-              btn.innerText = originalText;
-              btn.disabled = false;
-            }
-        });
-    });
-  }
+  // Handler untuk Form Akses Toolkit Premium
+  setupFormHandler("gated-access-form", "Sukses! Permintaan akses toolkit Anda telah kami terima.");
 });
