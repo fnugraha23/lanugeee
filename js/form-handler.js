@@ -1,52 +1,54 @@
 /* ======================================================
-   LONTARA — FORM HANDLER (REAL MAILTO LOGIC)
-   Membuka Draft Gmail Secara Otomatis
+   LONTARA — FORM HANDLER (EMAILJS INTEGRATION)
+   Mengirim pesan otomatis di latar belakang
 ====================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
+  // 1. Inisialisasi EmailJS dengan Public Key kamu
+  emailjs.init("UYXE1DX3pWfcDCIU8");
+
   const contactForm = document.getElementById("contact-form");
   const gatedForm = document.getElementById("gated-access-form");
+
+  // 2. Masukkan Service ID kamu
+  const serviceID = "service_1gevel5";
+  
+  // 3. Masukkan Template ID kamu di sini (cari di Dashboard EmailJS -> Email Templates)
+  const templateID = "template_n753lnf"; 
 
   /* 1. GENERAL CONTACT FORM HANDLER */
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // Mencegah halaman refresh
 
-      // Mengambil data dari input sesuai ID di HTML
-      const name = document.getElementById("name").value;
-      const userEmail = document.getElementById("email").value;
-      const service = document.getElementById("service").value;
-      const message = document.getElementById("message").value;
+      // Feedback visual pada tombol saat loading
+      const btn = contactForm.querySelector("button[type='submit']") || contactForm.querySelector("button");
+      const originalText = btn ? btn.innerText : "Kirim Pesan";
 
-      // Menyusun Subjek dan Isi Email
-      const subject = encodeURIComponent(`Tanya Lontara: ${service} - ${name}`);
-      const body = encodeURIComponent(
-        `Halo Tim Lontara,\n\n` +
-          `Saya ${name} (${userEmail}), ingin berkonsultasi mengenai layanan ${service}.\n\n` +
-          `Detail Kebutuhan:\n${message}\n\n` +
-          `--- Terkirim melalui Form Kontak Lontara ---`,
-      );
+      if (btn) {
+        btn.innerText = "Mengirim...";
+        btn.disabled = true;
+      }
 
-      // Membuka jendela email (mailto)
-      const mailtoLink = `mailto:lontaraai@gmail.com?subject=${subject}&body=${body}`;
-      window.open(mailtoLink, "_blank");
-
-      // Feedback visual pada tombol
-      const btn = contactForm.querySelector("button[type='submit']");
-      const originalText = btn.innerText;
-
-      btn.innerText = "Membuka Gmail...";
-      btn.disabled = true;
-
-      setTimeout(() => {
-        btn.innerText = "Draf Terbuka!";
-        contactForm.reset();
-
-        setTimeout(() => {
-          btn.innerText = originalText;
-          btn.disabled = false;
-        }, 2000);
-      }, 1000);
+      // Mengirim data form via EmailJS
+      // Parameter 'this' akan otomatis mengambil semua input yang memiliki atribut 'name' di HTML-mu
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(function() {
+            // Jika Berhasil
+            alert("Sukses! Pesan Anda telah terkirim ke tim Lontara.");
+            contactForm.reset();
+            if (btn) {
+              btn.innerText = originalText;
+              btn.disabled = false;
+            }
+        }, function(error) {
+            // Jika Gagal
+            alert("Gagal mengirim pesan. Error: " + JSON.stringify(error));
+            if (btn) {
+              btn.innerText = originalText;
+              btn.disabled = false;
+            }
+        });
     });
   }
 
@@ -55,31 +57,33 @@ document.addEventListener("DOMContentLoaded", function () {
     gatedForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Mengambil data dari form premium
-      const name = document.getElementById("premium-name").value;
-      const userEmail = document.getElementById("premium-email").value;
-      const toolkit = document.getElementById("toolkit-selection").value;
+      const btn = gatedForm.querySelector("button[type='submit']") || gatedForm.querySelector("button");
+      const originalText = btn ? btn.innerText : "Kirim Permintaan";
+      
+      if (btn) {
+        btn.innerText = "Memproses...";
+        btn.disabled = true;
+      }
 
-      const subject = encodeURIComponent(
-        `Permintaan Akses Toolkit: ${toolkit}`,
-      );
-      const body = encodeURIComponent(
-        `Halo Tim Lontara,\n\n` +
-          `Saya ${name} bermaksud meminta akses untuk resource premium berikut:\n` +
-          `Resource: ${toolkit}\n\n` +
-          `Mohon informasikan langkah selanjutnya untuk mendapatkan akses tersebut.\n\n` +
-          `Terima kasih.\n` +
-          `Email Pengirim: ${userEmail}`,
-      );
-
-      // Membuka jendela email
-      const mailtoLink = `mailto:lontaraai@gmail.com?subject=${subject}&body=${body}`;
-      window.open(mailtoLink, "_blank");
-
-      alert(
-        "Draf email permintaan akses telah dibuat. Silakan klik 'Kirim' pada jendela email Anda.",
-      );
-      gatedForm.reset();
+      // Mengirim data form premium via EmailJS
+      // Catatan: Jika form premium ini butuh format email yang berbeda dari form kontak, 
+      // kamu harus buat Template baru di EmailJS dan masukkan ID-nya di bawah ini.
+      // Untuk sementara saya pakai templateID yang sama.
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(function() {
+            alert("Sukses! Permintaan akses toolkit Anda telah kami terima.");
+            gatedForm.reset();
+            if (btn) {
+              btn.innerText = originalText;
+              btn.disabled = false;
+            }
+        }, function(error) {
+            alert("Terjadi kesalahan. Error: " + JSON.stringify(error));
+            if (btn) {
+              btn.innerText = originalText;
+              btn.disabled = false;
+            }
+        });
     });
   }
 });
