@@ -13,17 +13,24 @@
     <link rel="stylesheet" href="../css/components.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <style>
+      /* --- PERBAIKAN CSS DIMULAI --- */
       .service-header {
         padding: 120px 0 80px;
         background: var(--bg-main);
         border-bottom: 1px solid var(--border);
       }
-      .service-content {
+
+      .service-section-wrapper {
+        padding: 80px 0;
+        background-color: #fff;
+      }
+
+      .service-grid-layout {
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 50px;
-        padding: 80px 0;
       }
+
       .sidebar-box {
         background: var(--bg-light);
         border: 1px solid var(--border);
@@ -41,11 +48,16 @@
         border-bottom: 1px solid var(--border);
         font-size: 0.95rem;
       }
+
       @media (max-width: 900px) {
-        .service-content {
+        .service-grid-layout {
           grid-template-columns: 1fr;
         }
+        .service-section-wrapper {
+          padding: 40px 0;
+        }
       }
+      /* --- PERBAIKAN CSS SELESAI --- */
     </style>
   </head>
   <body>
@@ -141,67 +153,71 @@
       </div>
     </section>
 
-    <section class="container service-content">
-      <div class="main-text">
-        <h2 style="margin-bottom: 20px">
-          Sains di Balik Setiap Keputusan Tata Ruang
-        </h2>
-        <p style="margin-bottom: 20px; color: var(--text-muted)">
-          Perencanaan wilayah tidak boleh bergantung pada intuisi semata.
-          Spatial Decision Support System (SDSS) yang kami rancang menggabungkan
-          data biofisik, sosial-ekonomi, dan aturan perundang-undangan
-          (RTRW/RDTR) untuk menghasilkan skenario perencanaan yang obyektif dan
-          meminimalkan konflik pemanfaatan ruang.
-        </p>
+    <section class="service-section-wrapper">
+      <div class="container">
+        <div class="service-grid-layout">
+          
+          <div class="main-text">
+            <h2 style="margin-bottom: 20px">
+              Sains di Balik Setiap Keputusan Tata Ruang
+            </h2>
+            <p style="margin-bottom: 20px; color: var(--text-muted)">
+              Perencanaan wilayah tidak boleh bergantung pada intuisi semata.
+              Spatial Decision Support System (SDSS) yang kami rancang menggabungkan
+              data biofisik, sosial-ekonomi, dan aturan perundang-undangan
+              (RTRW/RDTR) untuk menghasilkan skenario perencanaan yang obyektif dan
+              meminimalkan konflik pemanfaatan ruang.
+            </p>
 
-        <h3 style="margin: 40px 0 15px">Fokus Implementasi</h3>
-        <p style="margin-bottom: 20px; color: var(--text-muted)">
-          Kami mendesain model pengambilan keputusan untuk berbagai skala
-          proyek:
-        </p>
-        <ul
-          style="
-            margin-bottom: 30px;
-            color: var(--text-muted);
-            padding-left: 20px;
-          "
-        >
-          <li style="margin-bottom: 10px">
-            <b>Analisis Penentuan Lokasi (*Site Selection*):</b> Menggunakan
-            metode AHP (Analytical Hierarchy Process) terintegrasi GIS untuk
-            lokasi TPA, bendungan, atau kawasan industri.
-          </li>
-          <li style="margin-bottom: 10px">
-            <b>Penyelesaian Konflik Lahan:</b> Overlay matriks perizinan konsesi
-            melawan area konservasi dan kawasan lindung.
-          </li>
-          <li style="margin-bottom: 10px">
-            <b>Perencanaan Mitigasi Bencana:</b> Pemodelan rute evakuasi optimal
-            dan penentuan lokasi *shelter* berbasis hambatan spasial.
-          </li>
-        </ul>
-      </div>
+            <h3 style="margin: 40px 0 15px">Fokus Implementasi</h3>
+            <p style="margin-bottom: 20px; color: var(--text-muted)">
+              Kami mendesain model pengambilan keputusan untuk berbagai skala
+              proyek:
+            </p>
+            <ul
+              style="
+                margin-bottom: 30px;
+                color: var(--text-muted);
+                padding-left: 20px;
+              "
+            >
+              <li style="margin-bottom: 10px">
+                <b>Analisis Penentuan Lokasi (*Site Selection*):</b> Menggunakan
+                metode AHP (Analytical Hierarchy Process) terintegrasi GIS untuk
+                lokasi TPA, bendungan, atau kawasan industri.
+              </li>
+              <li style="margin-bottom: 10px">
+                <b>Penyelesaian Konflik Lahan:</b> Overlay matriks perizinan konsesi
+                melawan area konservasi dan kawasan lindung.
+              </li>
+              <li style="margin-bottom: 10px">
+                <b>Perencanaan Mitigasi Bencana:</b> Pemodelan rute evakuasi optimal
+                dan penentuan lokasi *shelter* berbasis hambatan spasial.
+              </li>
+            </ul>
+          </div>
 
-      <div class="sidebar">
-        <div class="sidebar-box">
-          <h3 style="font-size: 1.2rem; color: var(--primary)">
-            Output Layanan
-          </h3>
-          <ul>
-            <li>Model AHP/MCDA Tervalidasi</li>
-            <li>Peta Rencana Tata Ruang / Skenario</li>
-            <li>Dokumen Kajian Risiko Spasial</li>
-            <li>Tools Geoprocessing Interaktif</li>
-          </ul>
-          <a
-            href="../contact/index.html"
-            class="btn-primary"
-            style="width: 100%; text-align: center; margin-top: 30px"
-            >Diskusikan Proyek Anda</a
-          >
-        </div>
-      </div>
-    </section>
+          <div class="sidebar">
+            <div class="sidebar-box">
+              <h3 style="font-size: 1.2rem; color: var(--primary)">
+                Output Layanan
+              </h3>
+              <ul>
+                <li>Model AHP/MCDA Tervalidasi</li>
+                <li>Peta Rencana Tata Ruang / Skenario</li>
+                <li>Dokumen Kajian Risiko Spasial</li>
+                <li>Tools Geoprocessing Interaktif</li>
+              </ul>
+              <a
+                href="../contact/index.html"
+                class="btn-primary"
+                style="width: 100%; text-align: center; margin-top: 30px; display: block;"
+                >Diskusikan Proyek Anda</a
+              >
+            </div>
+          </div>
+
+        </div> </div> </section>
 
     <footer class="footer">
       <div class="container footer-container">
