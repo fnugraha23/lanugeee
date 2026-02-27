@@ -35,7 +35,7 @@
 }
 
 /* =========================
-   CONTACT FORM LAYOUT (Fix Bidang Putih)
+   CONTACT FORM LAYOUT (Fix Bidang Putih Berlebih)
 ========================= */
 
 .contact-form-card {
@@ -51,6 +51,10 @@
   
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
+
+  /* SOLUSI: Mencegah kartu memanjang mengikuti tinggi kolom sebelah */
+  height: fit-content; 
+  align-self: flex-start;
 }
 
 /* =========================
@@ -75,6 +79,11 @@
   gap: 28px;
 }
 
+/* Mencegah elemen dalam grid ditarik menjadi sama tinggi secara paksa */
+.grid-2.align-start {
+  align-items: start;
+}
+
 @media (max-width: 1100px) {
   .grid-4,
   .grid-3 {
@@ -92,7 +101,8 @@
     padding: 80px 0;
   }
   .contact-form-card {
-    padding: 25px; /* Mengurangi padding di layar HP agar lebih luas untuk input */
+    padding: 25px; /* Mengurangi padding di layar HP agar lebih luas */
+    align-self: stretch; /* Pada mobile, biarkan melebar normal */
   }
 }
 
