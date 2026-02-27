@@ -33,15 +33,25 @@
       /* Khusus Halaman Kontak untuk memastikan tata letak Grid presisi */
       .contact-section {
         padding: 120px 0;
-        background: var(--bg-main);
+        background: var(--bg-light);
         min-height: 80vh;
+        width: 100%;
       }
       
       .contact-grid {
         display: grid;
-        grid-template-columns: 1fr 1.2fr; /* Rasio kolom info vs form */
+        grid-template-columns: 1fr 1.2fr;
         gap: 80px;
-        align-items: start; /* KUNCI: Mencegah form memanjang mengikuti kolom info */
+        align-items: start; /* Mencegah form memanjang mengikuti kolom info */
+      }
+
+      .info-block {
+        margin-top: 35px;
+        transition: var(--transition);
+      }
+
+      .info-block:hover {
+        transform: translateX(5px);
       }
 
       @media (max-width: 992px) {
@@ -49,10 +59,18 @@
           grid-template-columns: 1fr;
           gap: 60px;
         }
+        .contact-info {
+          text-align: center;
+        }
+        .info-block div, .info-block a {
+          justify-content: center;
+        }
       }
     </style>
   </head>
   <body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <header class="header" id="header">
       <div class="progress-bar" id="progress-bar"></div>
       <div class="container nav-container">
@@ -62,6 +80,13 @@
           </a>
         </div>
         <nav class="nav" id="nav-menu">
+          <button class="nav-close" id="nav-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
           <div class="nav-item"><a href="../solutions/index.html">Jasa</a></div>
           <div class="nav-item has-dropdown">
             <a href="../platform/index.html" class="nav-link-dropdown">
@@ -81,7 +106,7 @@
           <div class="nav-item"><a href="../resources/index.html">Data</a></div>
           <div class="nav-item"><a href="../publications/index.html">Publikasi</a></div>
           <div class="nav-item"><a href="../about/index.html">Tentang</a></div>
-          <a href="index.html" class="nav-cta" style="background: var(--primary-dark)">Kontak</a>
+          <a href="index.html" class="nav-cta active">Kontak</a>
         </nav>
         <button class="nav-toggle" id="nav-toggle">
           <span></span><span></span><span></span>
@@ -98,22 +123,22 @@
               Mari Membangun Solusi Bersama
             </h1>
             <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px;">
-              Jadwalkan sesi konsultasi gratis untuk mendiskusikan kebutuhan arsitektur spasial, pemodelan DAS, atau pengembangan produk Anda.
+              Jadwalkan sesi konsultasi untuk mendiskusikan kebutuhan arsitektur spasial, pemodelan DAS, atau otomasi data engineering Anda.
             </p>
 
-            <div class="info-block" style="margin-top: 40px">
-              <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase;">
-                Email Langsung
+            <div class="info-block">
+              <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                Email Studio
               </h4>
               <div style="display: flex; align-items: center; gap: 12px; color: var(--text-main);">
-                <i class="bi bi-envelope-fill" style="color: #ea4335; font-size: 1.3rem"></i>
-                <p style="margin: 0; font-weight: 500">lontaraai@gmail.com</p>
+                <i class="bi bi-envelope-at-fill" style="color: var(--accent); font-size: 1.3rem"></i>
+                <p style="margin: 0; font-weight: 600">lontaraai@gmail.com</p>
               </div>
             </div>
 
-            <div class="info-block" style="margin-top: 40px">
-              <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase;">
-                Lokasi Studio
+            <div class="info-block">
+              <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                Lokasi
               </h4>
               <div style="display: flex; align-items: flex-start; gap: 12px; color: var(--text-main);">
                 <i class="bi bi-geo-alt-fill" style="color: #ff4444; font-size: 1.3rem"></i>
@@ -123,24 +148,24 @@
               </div>
             </div>
 
-            <div class="info-block" style="margin-top: 40px">
+            <div class="info-block">
               <a href="https://linkedin.com/in/fajar-nugraha23" target="_blank" style="color: #0077b5; font-weight: 700; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="bi bi-linkedin" style="font-size: 1.3rem"></i>
-                Terhubung di LinkedIn &rarr;
+                LinkedIn Profile &rarr;
               </a>
             </div>
 
-            <div class="info-block" style="margin-top: 40px">
+            <div class="info-block">
               <a href="https://www.instagram.com/lontara.ai/" target="_blank" style="color: #e4405f; font-weight: 700; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="bi bi-instagram" style="font-size: 1.3rem"></i>
-                Ikuti Kami di Instagram &rarr;
+                Instagram Studio &rarr;
               </a>
             </div>
 
-            <div class="info-block" style="margin-top: 40px">
+            <div class="info-block">
               <a href="https://wa.me/62881022823654" target="_blank" style="color: #25d366; font-weight: 700; display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <i class="bi bi-whatsapp" style="font-size: 1.3rem"></i>
-                Hubungi Kami di WhatsApp &rarr;
+                WhatsApp Konsultasi &rarr;
               </a>
             </div>
           </div>
@@ -170,11 +195,11 @@
               </div>
               
               <div class="form-group">
-                <label for="message">Pesan / Deskripsi Proyek</label>
-                <textarea id="message" name="pesan" required placeholder="Ceritakan secara singkat masalah atau kebutuhan spasial yang ingin Anda selesaikan..."></textarea>
+                <label for="message">Deskripsi Proyek</label>
+                <textarea id="message" name="pesan" required placeholder="Jelaskan kebutuhan spasial atau tantangan lingkungan yang ingin Anda selesaikan..."></textarea>
               </div>
               
-              <button type="submit" class="btn-primary" style="width: 100%">
+              <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
                 Kirim Pesan
               </button>
             </form>
