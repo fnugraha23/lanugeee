@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -61,30 +61,33 @@
         margin-bottom: 20px;
         font-size: 1.8rem;
       }
-      .vm-card p {
-        color: var(--text-muted);
-      }
 
-      /* Bagian Founder */
+      /* Perbaikan Bagian Founder agar Gambar Tidak Terpotong */
       .founder-section {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
         gap: 60px;
         align-items: center;
         padding: 100px 0;
       }
-      .founder-image {
-        flex: 1;
-        min-width: 300px;
-        height: 450px;
-        background: var(--border);
+      
+      .founder-image-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
         border-radius: var(--radius);
-        position: relative;
         overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        background: var(--border);
       }
-      .founder-text {
-        flex: 1;
-        min-width: 300px;
+
+      .founder-image-container img {
+        width: 100%;
+        height: auto; /* Memastikan gambar ijazah tampil utuh secara proporsional */
+        display: block;
+        object-fit: contain; 
       }
+
       .founder-badge {
         display: inline-block;
         padding: 6px 16px;
@@ -112,27 +115,18 @@
         border: 1px solid var(--border);
         border-radius: var(--radius);
       }
-      .expertise-item h4 {
-        margin-bottom: 10px;
-        color: var(--primary);
-      }
-      .expertise-item p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-      }
 
-      @media (max-width: 900px) {
+      @media (max-width: 992px) {
         .vision-mission,
         .founder-section {
-          flex-direction: column;
           grid-template-columns: 1fr;
-          gap: 30px;
+          gap: 40px;
         }
         .expertise-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-        .founder-image {
-          height: 350px;
+        .hero-about h1 {
+          font-size: 2.2rem;
         }
       }
       @media (max-width: 600px) {
@@ -149,74 +143,34 @@
       <div class="container nav-container">
         <div class="logo">
           <a href="../index.html">
-            <img
-              src="../assets/images/logo.png"
-              alt="Lontara Logo"
-              width="120"
-              height="38"
-            />
+            <img src="../assets/images/logo.png" alt="Lontara Logo" width="120" height="38" />
           </a>
         </div>
 
         <nav class="nav" id="nav-menu">
-          <div class="nav-item">
-            <a href="../solutions/index.html">Jasa</a>
-          </div>
+          <div class="nav-item"><a href="../solutions/index.html">Jasa</a></div>
           <div class="nav-item has-dropdown">
             <a href="../platform/index.html" class="nav-link-dropdown">
               Proyek
-              <svg
-                class="arrow-icon"
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 1L5 5L9 1"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+              <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
             <div class="dropdown">
-              <a href="../platform/environmental-dashboard.html"
-                >WEBGIS Interaktif</a
-              >
-              <a href="../platform/spatial-ml-engine.html">Machine Learning untuk Spasial</a>
-              <a href="../platform/data-engineering-tools.html"
-                >Tools untuk Analisis Spasial</a
-              >
+              <a href="../platform/environmental-dashboard.html">WEBGIS Interaktif</a>
+              <a href="../platform/spatial-ml-engine.html">Machine Learning Spasial</a>
+              <a href="../platform/data-engineering-tools.html">Tools Analisis Spasial</a>
             </div>
           </div>
-          <div class="nav-item">
-            <a href="../case-studies/index.html">Studi Kasus</a>
-          </div>
-          <div class="nav-item">
-            <a href="../research/index.html">Penelitian</a>
-          </div>
-          <div class="nav-item">
-            <a href="../resources/index.html">Data</a>
-          </div>
-          <div class="nav-item">
-            <a href="../publications/index.html">Publikasi</a>
-          </div>
-
-          <div class="nav-item">
-            <a href="index.html" class="active">Tentang</a>
-          </div>
-
+          <div class="nav-item"><a href="../case-studies/index.html">Studi Kasus</a></div>
+          <div class="nav-item"><a href="../research/index.html">Penelitian</a></div>
+          <div class="nav-item"><a href="../resources/index.html">Data</a></div>
+          <div class="nav-item"><a href="../publications/index.html">Publikasi</a></div>
+          <div class="nav-item"><a href="index.html" class="active">Tentang</a></div>
           <a href="../contact/index.html" class="nav-cta">Kontak</a>
         </nav>
 
-        <button
-          class="nav-toggle"
-          id="nav-toggle"
-          aria-label="Toggle navigation"
-        >
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -227,87 +181,60 @@
         <h1>Menjembatani Sains Lahan & Teknologi</h1>
         <p>
           Lontara adalah studio pemodelan lingkungan & DAS yang berdedikasi untuk
-          mentransformasi cara organisasi dan pemerintah mengambil keputusan
-          tata ruang—dari metode observasi konvensional menuju pemodelan
-          prediktif berbasis data.
+          mentransformasi pengambilan keputusan tata ruang berbasis data prediktif.
         </p>
       </div>
     </section>
 
-    <section
-      class="section"
-      style="padding-top: 0; position: relative; z-index: 2"
-    >
+    <section class="section" style="padding-top: 0; position: relative; z-index: 2">
       <div class="container vision-mission">
         <div class="vm-card reveal-init">
           <h2>Visi Kami</h2>
           <p>
             Menjadi pelopor infrastruktur data spasial dan kecerdasan buatan
-            <i>Artificial Intelligence</i> dalam sektor lingkungan hidup di Asia
-            Tenggara, memastikan setiap jengkal keputusan penggunaan lahan
-            didasarkan pada perhitungan ekologis yang presisi.
+            <i>(Artificial Intelligence)</i> dalam sektor lingkungan hidup di Asia Tenggara, 
+            memastikan setiap keputusan penggunaan lahan didasarkan pada perhitungan ekologis yang presisi.
           </p>
         </div>
         <div class="vm-card reveal-init">
           <h2>Misi Kami</h2>
           <p>
             Menyediakan alat rekayasa data, dasbor <b>WebGIS</b>, dan mesin pemodelan
-            spasial yang dapat diakses, transparan, dan dapat diandalkan untuk
-            mengatasi kompleksitas evaluasi kesesuaian lahan, konservasi air,
-            dan mitigasi perubahan iklim.
+            spasial yang transparan dan dapat diandalkan untuk mengatasi kompleksitas evaluasi 
+            kesesuaian lahan dan mitigasi perubahan iklim.
           </p>
         </div>
       </div>
     </section>
 
-<section class="section section-light">
+    <section class="section section-light">
       <div class="container">
         <div class="founder-section">
-          <div class="founder-image reveal-init">
+          <div class="founder-image-container reveal-init">
             <img 
               src="../assets/images/Foto%20Pribadi.jpeg" 
               alt="Fajar Nugraha - Founder Lontara" 
-              style="width: 100%; height: 100%; object-fit: cover; display: block;"
             />
-          </div>
           </div>
 
           <div class="founder-text reveal-init">
             <span class="founder-badge">Founder & Lead Engineer</span>
-            <h2 style="font-size: 2.2rem; margin-bottom: 20px">
-              Fajar Nugraha
-            </h2>
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px">Fajar Nugraha</h2>
             <p style="color: var(--text-muted); margin-bottom: 15px">
-              Lontara didirikan dari pemahaman mendalam bahwa sains lingkungan
-              tidak cukup hanya berakhir sebagai makalah akademis. Dibutuhkan
-              rekayasa perangkat lunak untuk membawa wawasan tersebut menjadi
-              sistem pendukung keputusan yang nyata <i>Decision Support
-              Systems</i>.
+              Lontara didirikan dari pemahaman mendalam bahwa sains lingkungan membutuhkan 
+              rekayasa perangkat lunak untuk menjadi <i>Decision Support Systems</i> yang nyata.
             </p>
             <p style="color: var(--text-muted); margin-bottom: 15px">
-              Dengan latar belakang pendidikan Ilmu Tanah dari Universitas
-              Hasanuddin dan studi pascasarjana di Institut Pertanian Bogor
-              (IPB), Fajar menggabungkan keahlian fisika tanah dan hidrologi
-              dengan rekayasa spasial <i>Spatial Engineering</i>.
+              Dengan latar belakang Ilmu Tanah dari Universitas Hasanuddin dan studi pascasarjana di IPB, 
+              Fajar menggabungkan keahlian hidrologi dengan <i>Spatial Engineering</i>.
             </p>
             <p style="color: var(--text-muted); margin-bottom: 30px">
-              Pengalamannya membentang dari riset mendalam tata guna lahan dan
-              kinerja Daerah Aliran Sungai di Sub-DAS Tanralili, hingga
-              keterlibatannya dalam pengembangan platform rekomendasi aksi
-              perubahan iklim (SIDIK) berskala nasional. Fokus utamanya kini
-              adalah mengintegrasikan GIS, Python, dan <i>Machine Learning</i>
-              untuk otomasi evaluasi kesesuaian lahan dan pemodelan lingkungan.
+              Fokus utamanya kini mengintegrasikan GIS, Python, dan <i>Machine Learning</i> untuk otomasi 
+              evaluasi kesesuaian lahan dan pemodelan lingkungan.
             </p>
-            <div style="display: flex; gap: 15px">
-              <a href="../contact/index.html" class="btn-primary"
-                >Hubungi Saya</a
-              >
-              <a
-                href="https://linkedin.com/in/fajar-nugraha23"
-                target="_blank"
-                class="btn-secondary"
-                >LinkedIn Profile</a
-              >
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="../contact/index.html" class="btn-primary">Hubungi Saya</a>
+              <a href="https://linkedin.com/in/fajar-nugraha23" target="_blank" class="btn-secondary">LinkedIn Profile</a>
             </div>
           </div>
         </div>
@@ -316,73 +243,36 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title" style="text-align: center">
-          DNA Teknologi Kami
-        </h2>
-        <p
-          class="section-subtitle"
-          style="text-align: center; margin: 0 auto 50px"
-        >
-          Basis keilmuan dan tumpukan teknologi <i>Tech Stack</i> yang
-          memberdayakan platform Lontara.
-        </p>
-
+        <h2 class="section-title" style="text-align: center">DNA Teknologi Kami</h2>
         <div class="expertise-grid">
           <div class="expertise-item reveal-init">
             <h4>Geospatial Sciences</h4>
-            <p>
-              QGIS, ArcGIS, Remote Sensing, Topology Correction & Spatial
-              Databases (PostGIS).
-            </p>
+            <p>QGIS, ArcGIS, Remote Sensing, dan Spatial Databases (PostGIS).</p>
           </div>
           <div class="expertise-item reveal-init">
             <h4>Data Engineering</h4>
-            <p>
-              Python, GeoPandas, Rasterio, dan otomasi ekstraksi data (ETL
-              Pipeline).
-            </p>
+            <p>Python, GeoPandas, Rasterio, dan otomasi ETL Pipeline.</p>
           </div>
           <div class="expertise-item reveal-init">
             <h4>Machine Learning</h4>
-            <p>
-              Random Forest & Neural Networks untuk LULC dan evaluasi lahan.
-            </p>
+            <p>Random Forest & Neural Networks untuk klasifikasi LULC.</p>
           </div>
           <div class="expertise-item reveal-init">
             <h4>Environmental Physics</h4>
-            <p>
-              Hidrologi, Fisika Tanah, Konservasi Air, dan pemodelan limpasan
-              <i>runoff</i>.
-            </p>
+            <p>Hidrologi, Fisika Tanah, dan pemodelan limpasan <i>(runoff)</i>.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2>Ingin Berkolaborasi?</h2>
-        <p style="margin-bottom: 30px; opacity: 0.9">
-          Kami terbuka untuk kemitraan riset, konsultasi proyek, maupun
-          kolaborasi pengembangan produk.
-        </p>
-        <a
-          href="https://wa.me/62881022823654"
-          class="btn-primary"
-          style="background: white; color: var(--primary)"
-          >Mulai Percakapan</a
-        >
       </div>
     </section>
 
     <footer class="footer">
       <div class="container footer-container">
         <div>
-          <h4>Lontara</h4>
-          <p>Environmental & Land Intelligence Studio.</p>
+          <h4 style="margin-bottom: 10px">Lontara</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">Environmental & Land Intelligence Studio.</p>
         </div>
         <div>
-          <p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">&copy; 2026 Lontara. Hak Cipta Dilindungi.</p>
         </div>
       </div>
     </footer>
@@ -392,13 +282,3 @@
     <script src="../js/main.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
