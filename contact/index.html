@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -30,89 +30,24 @@
     <link rel="stylesheet" href="../css/main.css" />
 
     <style>
+      /* Khusus Halaman Kontak untuk memastikan tata letak Grid presisi */
       .contact-section {
         padding: 120px 0;
         background: var(--bg-main);
         min-height: 80vh;
       }
+      
       .contact-grid {
         display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 60px;
-        max-width: 1000px;
-        margin: 0 auto;
+        grid-template-columns: 1fr 1.2fr; /* Rasio kolom info vs form */
+        gap: 80px;
+        align-items: start; /* KUNCI: Mencegah form memanjang mengikuti kolom info */
       }
 
-      .contact-info {
-        padding-top: 20px;
-      }
-      .contact-info h1 {
-        font-size: 2.8rem;
-        margin-bottom: 20px;
-        color: var(--primary);
-      }
-      .contact-info p {
-        color: var(--text-muted);
-        font-size: 1.1rem;
-        margin-bottom: 40px;
-      }
-      .info-block {
-        margin-bottom: 25px;
-      }
-      .info-block h4 {
-        color: var(--primary);
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        margin-bottom: 5px;
-      }
-      .info-block p {
-        color: var(--text-muted);
-      }
-
-      .contact-form-card {
-        background: white;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 40px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-      }
-      .form-group {
-        margin-bottom: 20px;
-      }
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-      .form-group input,
-      .form-group textarea,
-      .form-group select {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        font-family: "Manrope", sans-serif;
-        font-size: 0.95rem;
-        outline: none;
-        transition: var(--transition);
-        background: var(--bg-main);
-      }
-      .form-group input:focus,
-      .form-group textarea:focus,
-      .form-group select:focus {
-        border-color: var(--accent);
-        background: white;
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 120px;
-      }
-
-      @media (max-width: 800px) {
+      @media (max-width: 992px) {
         .contact-grid {
           grid-template-columns: 1fr;
-          gap: 40px;
+          gap: 60px;
         }
       }
     </style>
@@ -123,70 +58,30 @@
       <div class="container nav-container">
         <div class="logo">
           <a href="../index.html">
-            <img
-              src="../assets/images/logo.png"
-              alt="Lontara Logo"
-              width="120"
-              height="38"
-            />
+            <img src="../assets/images/logo.png" alt="Lontara Logo" width="120" height="38" />
           </a>
         </div>
         <nav class="nav" id="nav-menu">
-          <div class="nav-item">
-            <a href="../solutions/index.html">Jasa</a>
-          </div>
+          <div class="nav-item"><a href="../solutions/index.html">Jasa</a></div>
           <div class="nav-item has-dropdown">
             <a href="../platform/index.html" class="nav-link-dropdown">
               Proyek
-              <svg
-                class="arrow-icon"
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 1L5 5L9 1"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+              <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
             <div class="dropdown">
-              <a href="../platform/environmental-dashboard.html"
-                >WEBGIS Interaktif</a
-              >
-              <a href="../platform/spatial-ml-engine.html"
-                >Machine Learning untuk Spasial</a
-              >
-              <a href="../platform/data-engineering-tools.html"
-                >Tools untuk Analisis Spasial</a
-              >
+              <a href="../platform/environmental-dashboard.html">WEBGIS Interaktif</a>
+              <a href="../platform/spatial-ml-engine.html">Machine Learning Spasial</a>
+              <a href="../platform/data-engineering-tools.html">Tools Analisis</a>
             </div>
           </div>
-          <div class="nav-item">
-            <a href="../case-studies/index.html">Studi Kasus</a>
-          </div>
-          <div class="nav-item">
-            <a href="../research/index.html">Penelitian</a>
-          </div>
-          <div class="nav-item">
-            <a href="../resources/index.html">Data</a>
-          </div>
-          <div class="nav-item">
-            <a href="../publications/index.html">Publikasi</a>
-          </div>
+          <div class="nav-item"><a href="../case-studies/index.html">Studi Kasus</a></div>
+          <div class="nav-item"><a href="../research/index.html">Penelitian</a></div>
+          <div class="nav-item"><a href="../resources/index.html">Data</a></div>
+          <div class="nav-item"><a href="../publications/index.html">Publikasi</a></div>
           <div class="nav-item"><a href="../about/index.html">Tentang</a></div>
-
-          <a
-            href="index.html"
-            class="nav-cta"
-            style="background: var(--primary-dark)"
-            >Kontak</a
-          >
+          <a href="index.html" class="nav-cta" style="background: var(--primary-dark)">Kontak</a>
         </nav>
         <button class="nav-toggle" id="nav-toggle">
           <span></span><span></span><span></span>
@@ -197,101 +92,54 @@
     <section class="contact-section">
       <div class="container">
         <div class="contact-grid">
+          
           <div class="contact-info reveal-init">
-            <h1>Mari Membangun Solusi Bersama</h1>
-            <p>
-              Jadwalkan sesi konsultasi gratis untuk mendiskusikan kebutuhan
-              arsitektur spasial, pemodelan DAS, atau pengembangan produk Anda.
+            <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: var(--primary);">
+              Mari Membangun Solusi Bersama
+            </h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px;">
+              Jadwalkan sesi konsultasi gratis untuk mendiskusikan kebutuhan arsitektur spasial, pemodelan DAS, atau pengembangan produk Anda.
             </p>
 
             <div class="info-block" style="margin-top: 40px">
-              <h4 style="color: var(--primary); margin-bottom: 10px">
+              <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase;">
                 Email Langsung
               </h4>
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                  color: var(--text-main);
-                "
-              >
-                <i
-                  class="bi bi-envelope-fill"
-                  style="color: #ea4335; font-size: 1.2rem"
-                ></i>
+              <div style="display: flex; align-items: center; gap: 12px; color: var(--text-main);">
+                <i class="bi bi-envelope-fill" style="color: #ea4335; font-size: 1.3rem"></i>
                 <p style="margin: 0; font-weight: 500">lontaraai@gmail.com</p>
               </div>
             </div>
+
             <div class="info-block" style="margin-top: 40px">
-              <h4 style="color: var(--primary); margin-bottom: 10px">
+              <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase;">
                 Lokasi Studio
               </h4>
-              <div
-                style="
-                  display: flex;
-                  align-items: flex-start;
-                  gap: 10px;
-                  color: var(--text-main);
-                "
-              >
-                <i
-                  class="bi bi-geo-alt-fill"
-                  style="color: #ff4444; font-size: 1.2rem"
-                ></i>
-                <p style="margin: 0; line-height: 1.5">
-                  Kota Makassar, Sulawesi Selatan<br />
-                  Indonesia
+              <div style="display: flex; align-items: flex-start; gap: 12px; color: var(--text-main);">
+                <i class="bi bi-geo-alt-fill" style="color: #ff4444; font-size: 1.3rem"></i>
+                <p style="margin: 0; line-height: 1.6">
+                  Kota Makassar, Sulawesi Selatan<br />Indonesia
                 </p>
               </div>
             </div>
+
             <div class="info-block" style="margin-top: 40px">
-              <a
-                href="https://linkedin.com/in/fajar-nugraha23"
-                target="_blank"
-                style="
-                  color: #0077b5;
-                  font-weight: 700;
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                "
-              >
-                <i class="bi bi-linkedin" style="font-size: 1.2rem"></i>
+              <a href="https://linkedin.com/in/fajar-nugraha23" target="_blank" style="color: #0077b5; font-weight: 700; display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <i class="bi bi-linkedin" style="font-size: 1.3rem"></i>
                 Terhubung di LinkedIn &rarr;
               </a>
             </div>
 
             <div class="info-block" style="margin-top: 40px">
-              <a
-                href="https://www.instagram.com/lontara.ai/"
-                target="_blank"
-                style="
-                  color: #e4405f;
-                  font-weight: 700;
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                "
-              >
-                <i class="bi bi-instagram" style="font-size: 1.2rem"></i>
+              <a href="https://www.instagram.com/lontara.ai/" target="_blank" style="color: #e4405f; font-weight: 700; display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <i class="bi bi-instagram" style="font-size: 1.3rem"></i>
                 Ikuti Kami di Instagram &rarr;
               </a>
             </div>
 
             <div class="info-block" style="margin-top: 40px">
-              <a
-                href="https://wa.me/62881022823654"
-                target="_blank"
-                style="
-                  color: #25d366;
-                  font-weight: 700;
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                "
-              >
-                <i class="bi bi-whatsapp" style="font-size: 1.2rem"></i>
+              <a href="https://wa.me/62881022823654" target="_blank" style="color: #25d366; font-weight: 700; display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <i class="bi bi-whatsapp" style="font-size: 1.3rem"></i>
                 Hubungi Kami di WhatsApp &rarr;
               </a>
             </div>
@@ -301,59 +149,37 @@
             <form id="contact-form">
               <div class="form-group">
                 <label for="name">Nama Lengkap</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="nama"
-                  required
-                  placeholder="Cth: Budi Santoso"
-                />
+                <input type="text" id="name" name="nama" required placeholder="Cth: Budi Santoso" />
               </div>
+              
               <div class="form-group">
                 <label for="email">Alamat Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="Cth: budi@instansi.go.id"
-                />
+                <input type="email" id="email" name="email" required placeholder="Cth: budi@instansi.go.id" />
               </div>
+              
               <div class="form-group">
                 <label for="service">Ketertarikan Layanan</label>
                 <select id="service" name="layanan" required>
                   <option value="">-- Pilih Layanan --</option>
-                  <option value="Pemodelan Hidrologi & DAS">
-                    Pemodelan Hidrologi & DAS
-                  </option>
-                  <option value="Evaluasi Kesesuaian Lahan">
-                    Evaluasi Kesesuaian Lahan
-                  </option>
-                  <option value="Pengembangan Custom WebGIS">
-                    Pengembangan Custom WebGIS
-                  </option>
-                  <option value="Spatial Machine Learning">
-                    Spatial Machine Learning
-                  </option>
-                  <option value="Pertanyaan Umum">
-                    Lainnya / Pertanyaan Umum
-                  </option>
+                  <option value="Pemodelan Hidrologi & DAS">Pemodelan Hidrologi & DAS</option>
+                  <option value="Evaluasi Kesesuaian Lahan">Evaluasi Kesesuaian Lahan</option>
+                  <option value="Pengembangan Custom WebGIS">Pengembangan Custom WebGIS</option>
+                  <option value="Spatial Machine Learning">Spatial Machine Learning</option>
+                  <option value="Pertanyaan Umum">Lainnya / Pertanyaan Umum</option>
                 </select>
               </div>
+              
               <div class="form-group">
                 <label for="message">Pesan / Deskripsi Proyek</label>
-                <textarea
-                  id="message"
-                  name="pesan"
-                  required
-                  placeholder="Ceritakan secara singkat masalah atau kebutuhan spasial yang ingin Anda selesaikan..."
-                ></textarea>
+                <textarea id="message" name="pesan" required placeholder="Ceritakan secara singkat masalah atau kebutuhan spasial yang ingin Anda selesaikan..."></textarea>
               </div>
+              
               <button type="submit" class="btn-primary" style="width: 100%">
                 Kirim Pesan
               </button>
             </form>
           </div>
+
         </div>
       </div>
     </section>
@@ -361,10 +187,12 @@
     <footer class="footer">
       <div class="container footer-container">
         <div>
-          <h4>Lontara</h4>
-          <p>Environmental & Land Intelligence Studio.</p>
+          <h4 style="margin-bottom: 10px;">Lontara</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Environmental & Land Intelligence Studio.</p>
         </div>
-        <div><p>&copy; 2026 Lontara. Hak Cipta Dilindungi.</p></div>
+        <div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">&copy; 2026 Lontara. Hak Cipta Dilindungi.</p>
+        </div>
       </div>
     </footer>
 
