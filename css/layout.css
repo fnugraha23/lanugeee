@@ -28,7 +28,12 @@
 .section-subtitle {
   color: var(--text-muted);
   margin-bottom: 50px;
-  max-width: 640px;
+  
+  /* PERBAIKAN DI SINI */
+  max-width: 640px; 
+  width: 100%;             /* Agar fleksibel mengikuti lebar layar */
+  line-height: 1.6;        /* Memberi ruang antar baris agar nyaman dibaca */
+  display: block;          /* Memastikan elemen berperilaku sebagai blok */
 }
 
 /* =========================
@@ -329,3 +334,4 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
