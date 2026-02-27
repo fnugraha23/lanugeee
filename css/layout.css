@@ -74,7 +74,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
   
-  /* Mencegah kartu memanjang mengikuti kolom sebelah */
+  /* Mencegah kartu memanjang mengikuti tinggi kolom sebelah */
   height: fit-content; 
   align-self: flex-start;
 }
@@ -121,6 +121,11 @@
   
   .founder-image-container {
     max-width: 380px;
+    order: 1; /* Foto muncul di atas teks pada mobile */
+  }
+
+  .founder-text {
+    order: 2;
   }
 }
 
