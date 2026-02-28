@@ -6,6 +6,8 @@
     <title>404 — Koordinat Tidak Ditemukan | Lontara</title>
 
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/theme.css" />
@@ -14,7 +16,7 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <style>
-      /* --- HEADER FIX: RATA TENGAH SEMPURNA --- */
+      /* --- HEADER FIX: RATA TENGAH & SINKRON --- */
       header.header {
         background-color: white !important;
         position: fixed;
@@ -42,6 +44,7 @@
         gap: clamp(10px, 2.5vw, 30px);
       }
 
+      /* Style khusus CTA agar menyatu di baris menu */
       .nav-item-cta a {
         background-color: #123b3a;
         color: white !important;
@@ -51,17 +54,26 @@
         transition: 0.3s;
       }
 
-      /* FIX: Hamburger Icon untuk Mobile */
+      /* FIX: HAMBURGER ICON STYLING (Wajib Ada di 404) */
       .nav-toggle {
         display: none;
         flex-direction: column;
-        gap: 5px;
-        background: none;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 1001;
+        padding: 0;
+        z-index: 1100;
       }
-      .nav-toggle span { width: 28px; height: 3px; background: var(--primary); border-radius: 2px; }
+      .nav-toggle span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary); /* Warna gelap sesuai header putih */
+        border-radius: 10px;
+        transition: 0.3s;
+      }
 
       /* --- STYLING RADAR 404: ESTETIKA PREMIUM --- */
       .error-page {
@@ -69,13 +81,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #0b1a19; /* Latar gelap pekat */
+        background-color: #0b1a19;
         position: relative;
         overflow: hidden;
         color: white;
+        padding-top: 80px;
       }
 
-      /* Lapisan Scanline Monitor */
+      /* Efek Scanline Monitor */
       .error-page::after {
         content: "";
         position: absolute;
@@ -83,60 +96,28 @@
         background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
         background-size: 100% 4px;
         pointer-events: none;
-        z-index: 6; /* Di atas segalanya */
+        z-index: 5;
       }
 
       .radar-system {
         position: absolute;
         width: min(800px, 90vw);
         height: min(800px, 90vw);
+        border: 1px solid rgba(0, 184, 169, 0.15);
         border-radius: 50%;
-        z-index: 2;
-        /* Efek Grid Teknis */
-        background-image:
-          radial-gradient(rgba(0, 184, 169, 0.1) 1px, transparent 1px),
-          radial-gradient(rgba(0, 184, 169, 0.1) 1px, transparent 1px);
-        background-size: 50px 50px;
-        background-position: 0 0, 25px 25px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      /* FIX: Ring Internal untuk Kedalaman */
-      .radar-ring {
-        position: absolute;
-        inset: 0;
-        border: 2px solid rgba(0, 184, 169, 0.1);
-        border-radius: 50%;
-        margin: auto;
-      }
-
-      /* FIX ANIMASI: Sorotan Lebih Tajam & Glow Tinggi */
       .radar-sweep {
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        background: conic-gradient(
-          from 0deg,
-          transparent 0%,
-          rgba(0, 184, 169, 0.05) 10%, /* Trail halus */
-          rgba(0, 184, 169, 0.5) 30%,  /* Inti cahaya */
-          rgba(0, 184, 169, 1) 31%,    /* Tepi paling terang */
-          transparent 32%               /* Cut-off tajam */
-        );
-        filter: drop-shadow(0 0 15px rgba(0, 184, 169, 0.8)); /* Glow dynamic */
-        animation: scan-radar-pro 5s linear infinite; /* Kecepatan lebih metodis */
-        z-index: 3;
-      }
-
-      /* FIX: Blips (Titik Koordinat) Hilang Timbul secara Acak */
-      .blip {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background: white; /* Titik phosphor menguning */
-        border-radius: 50%;
-        box-shadow: 0 0 15px rgba(0, 184, 169, 1);
-        opacity: 0;
-        z-index: 5;
+        background: conic-gradient(from 0deg, rgba(0, 184, 169, 0.5) 0%, transparent 45%);
+        filter: drop-shadow(0 0 15px rgba(0, 184, 169, 0.6));
+        animation: scan-radar 4s linear infinite; /* Animasi linear agar mulus */
       }
 
       .error-content {
@@ -145,7 +126,6 @@
         text-align: center;
         max-width: 600px;
         padding: 40px;
-        backdrop-filter: blur(2px); /* Menyatukan teks dengan radar di belakang */
       }
 
       .error-code {
@@ -154,19 +134,17 @@
         background: linear-gradient(to bottom, #00b8a9, #ffffff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        letter-spacing: -10px;
-        filter: drop-shadow(0 0 25px rgba(0, 184, 169, 0.5));
-        animation: pulse-glow-pro 4s ease-in-out infinite;
+        animation: pulse-glow 3s ease-in-out infinite;
       }
 
-      /* --- KEYFRAMES BARU --- */
-      @keyframes scan-radar-pro { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      @keyframes pulse-glow-pro { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(0, 184, 169, 0.3)); } 50% { transform: scale(1.03); filter: drop-shadow(0 0 35px rgba(0, 184, 169, 0.7)); } }
-      @keyframes flicker-blip { 0%, 100% { opacity: 0; transform: scale(0.5); } 5%, 15% { opacity: 1; transform: scale(1.2); } }
+      @keyframes scan-radar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      @keyframes pulse-glow { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.03); opacity: 1; } }
 
+      /* --- MEDIA QUERY: MOBILE --- */
       @media (max-width: 992px) {
         .nav { display: none; }
-        .nav-toggle { display: flex; }
+        .nav-toggle { display: flex; } /* Paksa hamburger muncul di mobile */
+        .nav-container { padding: 0 25px; }
       }
     </style>
   </head>
@@ -183,7 +161,7 @@
         </div>
 
         <nav class="nav" id="nav-menu">
-          <button class="nav-close" id="nav-close">
+          <button class="nav-close" id="nav-close" aria-label="Tutup Menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
           
@@ -199,25 +177,22 @@
           </div>
         </nav>
 
-        <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Buka Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
     <main class="error-page">
-      <div class="radar-system">
-        <div class="radar-ring" style="width: 80%; height: 80%;"></div>
-        <div class="radar-ring" style="width: 60%; height: 60%;"></div>
-        <div class="radar-ring" style="width: 40%; height: 40%;"></div>
+            <div class="radar-system">
         <div class="radar-sweep"></div>
-        
-        <div class="blip" style="top: 25%; left: 60%; animation: flicker-blip 6s infinite 1.2s;"></div>
-        <div class="blip" style="top: 55%; left: 30%; animation: flicker-blip 6s infinite 3.5s;"></div>
-        <div class="blip" style="top: 75%; left: 65%; animation: flicker-blip 6s infinite 5.1s;"></div>
       </div>
 
       <div class="container error-content">
         <div class="error-code">404</div>
-        <h2 style="font-size: 2rem; margin-top: -10px; letter-spacing: 2px; color: white;">Signal Lost</h2>
+        <h2 style="font-size: 2rem; margin-top: -10px; letter-spacing: 2px;">Signal Lost</h2>
         <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 40px; line-height: 1.6;">
           Koordinat spasial yang Anda cari tidak terdeteksi oleh sensor geodatabase Lontara. Rute ini mungkin telah dipindahkan atau berada di luar cakupan analisis kami.
         </p>
