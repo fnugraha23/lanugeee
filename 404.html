@@ -6,13 +6,9 @@
     <title>404 — Koordinat Tidak Ditemukan | Lontara</title>
 
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/theme.css" />
     <link rel="stylesheet" href="/css/layout.css" />
@@ -20,14 +16,15 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <style>
-      /* --- HEADER FIX: RATA TENGAH & SINKRON --- */
+      /* --- HEADER FIX: MENYATUKAN MENU & CTA --- */
       header.header {
-        background-color: white !important; /* Menyamakan dengan header utama */
+        background-color: white !important;
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
         border-bottom: 1px solid var(--border);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       }
 
       .nav-container {
@@ -37,23 +34,30 @@
         height: 80px;
       }
 
-      /* Menengahkah menu di antara Logo dan CTA */
+      /* Logo di Sisi Kiri */
+      .logo { flex: 0 0 auto; }
+
+      /* Container Navigasi Utama */
       .nav {
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex: 1; 
-        gap: clamp(15px, 3vw, 30px);
+        justify-content: center; /* Menengahkah seluruh grup menu */
+        flex: 1;
+        gap: clamp(10px, 2.5vw, 35px); /* Jarak dinamis antar menu */
       }
 
-      .logo {
-        flex: 0 0 120px; /* Memberikan ruang tetap untuk logo di sisi kiri */
+      /* Style khusus link Kontak agar terlihat sebagai tombol di dalam baris menu */
+      .nav-item-cta a {
+        background-color: #123b3a; /* Warna hijau gelap Lontara */
+        color: white !important;
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-weight: 700;
+        transition: 0.3s ease;
       }
-
-      .nav-item-cta-container {
-        flex: 0 0 120px; /* Menyeimbangkan sisi kanan agar menu tetap di tengah */
-        display: flex;
-        justify-content: flex-end;
+      .nav-item-cta a:hover {
+        background-color: var(--accent);
+        transform: translateY(-2px);
       }
 
       /* --- STYLING KHUSUS RADAR 404 --- */
@@ -66,7 +70,7 @@
         position: relative;
         overflow: hidden;
         color: white;
-        padding-top: 80px; /* Padding agar tidak tertutup header */
+        padding-top: 80px;
       }
 
       .error-page::after {
@@ -107,8 +111,6 @@
         height: 8px;
         background: var(--accent);
         border-radius: 50%;
-        filter: blur(1px);
-        box-shadow: 0 0 10px var(--accent);
         animation: flicker 3s infinite;
         opacity: 0;
       }
@@ -122,7 +124,6 @@
         -webkit-text-fill-color: transparent;
         margin-bottom: 0;
         letter-spacing: -10px;
-        filter: drop-shadow(0 0 20px rgba(0, 184, 169, 0.4));
         animation: pulse-glow 4s ease-in-out infinite;
       }
 
@@ -134,29 +135,15 @@
         padding: 40px;
       }
 
-      .error-content h2 {
-        font-size: 2rem;
-        color: white;
-        margin-top: -10px;
-        margin-bottom: 15px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      .error-content p {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 1.1rem;
-        margin-bottom: 40px;
-        line-height: 1.6;
-      }
+      .error-content h2 { font-size: 2rem; color: white; margin-bottom: 15px; text-transform: uppercase; }
+      .error-content p { color: rgba(255, 255, 255, 0.7); font-size: 1.1rem; margin-bottom: 40px; }
 
       @keyframes scan-pro { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      @keyframes flicker { 0%, 100% { opacity: 0; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
-      @keyframes pulse-glow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+      @keyframes flicker { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
       @media (max-width: 992px) {
-        .nav { display: none; } /* Mobile menu ditangani oleh main.js & nav-toggle */
-        .error-code { font-size: 8rem; letter-spacing: -5px; }
+        .nav { display: none; } /* Mobile toggle via main.js */
+        .error-code { font-size: 8rem; }
         .radar-system { width: 500px; height: 500px; }
       }
     </style>
@@ -174,7 +161,7 @@
         </div>
 
         <nav class="nav" id="nav-menu">
-          <button class="nav-close" id="nav-close" aria-label="Tutup Menu">
+          <button class="nav-close" id="nav-close">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
           
@@ -184,11 +171,11 @@
           <div class="nav-item"><a href="/publikasi/publikasi.html">Publikasi</a></div>
           <div class="nav-item"><a href="/aset-digital/aset-digital.html">Aset Digital</a></div>
           <div class="nav-item"><a href="/tentang/tentang.html">Tentang</a></div>
-        </nav>
 
-        <div class="nav-item-cta-container">
-          <a href="/kontak/kontak.html" class="nav-link-cta">Kontak</a>
-        </div>
+          <div class="nav-item nav-item-cta">
+            <a href="/kontak/kontak.html">Kontak</a>
+          </div>
+        </nav>
 
         <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
       </div>
