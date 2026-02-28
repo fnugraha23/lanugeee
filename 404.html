@@ -16,36 +16,50 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <style>
-      /* --- PENYELARASAN HEADER: RATA TENGAH --- */
+      /* --- PENYELARASAN HEADER: RATA TENGAH & KONTAK HIJAU --- */
+      header.header {
+        background-color: white !important;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--border);
+      }
+
       .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 80px;
       }
 
-      .logo { flex: 0 0 120px; } /* Menjaga lebar logo tetap */
+      .logo { flex: 0 0 120px; } /* Menjaga lebar logo tetap di kiri */
 
+      /* Menengahkah menu di antara Logo dan Hamburger */
       .nav {
         display: flex;
         align-items: center;
         justify-content: center; /* Inti dari rata tengah */
         flex: 1; 
-        gap: 30px;
+        gap: clamp(10px, 2.5vw, 30px);
       }
 
-      /* Pembeda Warna Hijau untuk Kontak */
+      /* FIX: Tombol Kontak Berwarna Hijau Lontara */
       .nav-link-cta {
-        background-color: #123b3a !important;
+        background-color: #123b3a !important; /* Hijau gelap khas Lontara */
         color: white !important;
         padding: 10px 24px;
         border-radius: 8px;
         font-weight: 700;
-        transition: 0.3s ease;
         text-decoration: none;
+        transition: 0.3s ease;
       }
-      .nav-link-cta:hover { background-color: var(--accent) !important; transform: translateY(-2px); }
+      .nav-link-cta:hover {
+        background-color: var(--accent) !important;
+        transform: translateY(-2px);
+      }
 
-      /* --- STYLING RADAR INTELIJEN --- */
+      /* --- STYLING RADAR 404 --- */
       .error-page {
         min-height: 100vh;
         display: flex;
@@ -55,24 +69,23 @@
         position: relative;
         overflow: hidden;
         color: white;
+        padding-top: 80px;
       }
 
       .error-page::after {
         content: "";
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
-          linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-        background-size: 100% 4px, 4px 100%;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+        background-size: 100% 4px;
         pointer-events: none;
         z-index: 5;
       }
 
       .radar-system {
         position: absolute;
-        width: 800px;
-        height: 800px;
+        width: min(800px, 90vw);
+        height: min(800px, 90vw);
         border: 1px solid rgba(0, 184, 169, 0.15);
         border-radius: 50%;
         z-index: 1;
@@ -86,43 +99,32 @@
         inset: 0;
         border-radius: 50%;
         background: conic-gradient(from 0deg, transparent 60%, rgba(0, 184, 169, 0.35));
-        animation: scan-pro 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        animation: scan-pro 4s linear infinite; /* Animasi linear agar lancar */
       }
 
-      .blip {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        border-radius: 50%;
-        filter: blur(1px);
-        box-shadow: 0 0 10px var(--accent);
-        animation: flicker 3s infinite;
-        opacity: 0;
+      .error-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 600px;
+        padding: 40px;
       }
 
       .error-code {
-        font-size: 12rem;
+        font-size: clamp(6rem, 15vw, 12rem);
         font-weight: 900;
-        line-height: 1;
         background: linear-gradient(to bottom, #00b8a9, #ffffff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 0;
-        letter-spacing: -10px;
-        filter: drop-shadow(0 0 20px rgba(0, 184, 169, 0.4));
         animation: pulse-glow 4s ease-in-out infinite;
       }
 
-      .error-content { position: relative; z-index: 10; text-align: center; max-width: 600px; padding: 40px; }
-
       @keyframes scan-pro { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      @keyframes flicker { 0%, 100% { opacity: 0; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
-      @keyframes pulse-glow { 0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 184, 169, 0.3)); transform: scale(1); } 50% { filter: drop-shadow(0 0 40px rgba(0, 184, 169, 0.7)); transform: scale(1.02); } }
+      @keyframes pulse-glow { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.02); opacity: 1; } }
 
-      @media (max-width: 768px) {
-        .error-code { font-size: 8rem; letter-spacing: -5px; }
-        .radar-system { width: 500px; height: 500px; }
+      @media (max-width: 992px) {
+        .nav { display: none; } /* Menu desktop sembunyi, hamburger muncul otomatis dari CSS main */
+        .error-code { font-size: 8rem; }
       }
     </style>
   </head>
@@ -132,6 +134,7 @@
 
     <header class="header" id="header">
       <div class="progress-bar" id="progress-bar"></div>
+
       <div class="container nav-container">
         <div class="logo">
           <a href="/beranda.html">
@@ -151,7 +154,7 @@
           <div class="nav-item"><a href="/aset-digital/aset-digital.html">Aset Digital</a></div>
           <div class="nav-item"><a href="/tentang/tentang.html">Tentang</a></div>
 
-          <div class="nav-item">
+          <div class="nav-item nav-item-cta">
             <a href="/kontak/kontak.html" class="nav-link-cta">Kontak</a>
           </div>
         </nav>
@@ -165,23 +168,20 @@
     </header>
 
     <main class="error-page">
-            <div class="radar-system">
+      
+      <div class="radar-system">
         <div class="radar-sweep"></div>
-        <div class="blip" style="top: 25%; left: 35%; animation-delay: 1s"></div>
-        <div class="blip" style="top: 65%; left: 75%; animation-delay: 2.5s"></div>
-        <div class="blip" style="top: 45%; left: 15%; animation-delay: 0.5s"></div>
       </div>
 
       <div class="container error-content">
         <div class="error-code">404</div>
-        <h2>Signal Lost</h2>
-        <p>
-          Koordinat spasial yang Anda cari tidak terdeteksi oleh sensor kami. Rute ini mungkin telah dipindahkan atau berada di luar cakupan geodatabase Lontara.
+        <h2 style="font-size: 2rem; margin-top: -10px; letter-spacing: 2px;">Signal Lost</h2>
+        <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 40px; line-height: 1.6;">
+          Koordinat spasial yang Anda cari tidak terdeteksi oleh sensor geodatabase Lontara. Rute ini mungkin telah dipindahkan atau berada di luar cakupan analisis kami.
         </p>
 
         <div class="btn-container">
-          <a href="/beranda.html" class="btn-primary" style="background: var(--accent); border: none">Inisialisasi Beranda</a>
-          <a href="/layanan/layanan.html" class="btn-secondary" style="border-color: white; color: white">Lihat Sistem Layanan</a>
+          <a href="/beranda.html" class="btn-primary" style="background: var(--accent); border: none; font-weight: 800; padding: 18px 30px;">Inisialisasi Beranda</a>
         </div>
       </div>
     </main>
