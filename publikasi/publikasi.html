@@ -24,12 +24,23 @@
     <link rel="stylesheet" href="../css/main.css" />
 
     <style>
-      /* FIX: Padding ditingkatkan agar judul tidak tertutup sticky header */
+      /* FIX: Padding Hero agar tidak tertutup sticky header */
       .hero-pub {
-        padding: 180px 0 80px;
-        background: var(--bg-light);
-        border-bottom: 1px solid var(--border);
+        padding: 180px 0 100px;
+        background-color: var(--primary);
+        color: white;
         text-align: center;
+      }
+      .hero-pub h1 {
+        font-size: 3rem;
+        margin-bottom: 24px;
+        color: white;
+      }
+      .hero-pub p {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto;
       }
 
       .pub-list {
@@ -138,11 +149,8 @@
         .hero-pub {
           padding: 140px 0 60px;
         }
-        .pub-card {
-          padding: 30px;
-        }
-        .pub-card h3 {
-          font-size: 1.3rem;
+        .hero-pub h1 {
+          font-size: 2.2rem;
         }
       }
     </style>
@@ -215,15 +223,7 @@
       <section class="hero-pub">
         <div class="container">
           <h1 class="reveal-init">Publikasi Ilmiah & Riset</h1>
-          <p
-            class="reveal-init"
-            style="
-              color: var(--text-muted);
-              max-width: 700px;
-              margin: 0 auto;
-              font-size: 1.1rem;
-            "
-          >
+          <p class="reveal-init">
             Dokumentasi kontribusi ilmiah kami dalam memajukan pemahaman
             mengenai interaksi lahan, air, dan teknologi intelijen geospasial.
           </p>
@@ -320,3 +320,4 @@
     <script src="../js/main.js"></script>
   </body>
 </html>
+
