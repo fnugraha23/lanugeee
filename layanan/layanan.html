@@ -24,12 +24,23 @@
     <link rel="stylesheet" href="../css/main.css" />
 
     <style>
-      /* FIX: Padding Hero ditingkatkan agar judul tidak tertutup header sticky */
+      /* FIX: Padding Hero agar tidak tertutup sticky header */
       .hero-solutions {
         padding: 180px 0 100px;
-        background-color: var(--bg-light);
+        background-color: var(--primary);
+        color: white;
         text-align: center;
-        border-bottom: 1px solid var(--border);
+      }
+      .hero-solutions h1 {
+        font-size: 3rem;
+        margin-bottom: 24px;
+        color: white;
+      }
+      .hero-solutions p {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto;
       }
 
       /* Grid Layanan yang responsif menggunakan sistem grid-3 dari layout.css */
@@ -108,6 +119,9 @@
         .hero-solutions {
           padding: 140px 0 60px;
         }
+        .hero-solutions h1 {
+          font-size: 2.2rem;
+        }
       }
     </style>
   </head>
@@ -180,19 +194,11 @@
     <main>
       <section class="hero-solutions">
         <div class="container">
-          <h1 class="reveal-init" style="font-size: 3rem; margin-bottom: 24px">
+          <h1 class="reveal-init">
             Solusi Cerdas untuk <br />
             Lingkungan & Lahan
           </h1>
-          <p
-            class="reveal-init"
-            style="
-              font-size: 1.15rem;
-              color: var(--text-muted);
-              max-width: 750px;
-              margin: 0 auto;
-            "
-          >
+          <p class="reveal-init">
             Pendekatan multidisiplin yang menggabungkan sains hidrologi,
             pemodelan spasial, dan rekayasa perangkat lunak untuk menjawab
             tantangan pengelolaan aset sumber daya alam.
@@ -368,3 +374,4 @@
     <script src="../js/main.js"></script>
   </body>
 </html>
+
