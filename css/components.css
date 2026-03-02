@@ -220,3 +220,17 @@
 @media (max-width: 768px) {
   .preview-grid { grid-template-columns: 1fr; }
 }
+
+.btn-container {
+  display: flex;            /* Mengaktifkan mode flex */
+  justify-content: center;   /* Menjaga tombol tetap di tengah */
+  gap: 15px;                /* Memberikan jarak antar elemen sebesar 15px */
+  margin-top: 25px;         /* Tambahan jarak dari teks di atasnya */
+}
+
+@media (max-width: 480px) {
+  .btn-container {
+    flex-direction: column; /* Tombol akan bertumpuk ke bawah jika layar HP terlalu kecil */
+    align-items: center;
+  }
+}
