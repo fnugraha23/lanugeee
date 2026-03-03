@@ -109,6 +109,20 @@
         transition: 0.3s;
       }
 
+      .section-title {
+        text-align: center; /* Teks rata tengah */
+        max-width: 700px; /* Membatasi lebar teks agar tidak "melepet" ke pinggir */
+        margin: 0 auto 40px; /* 'auto' di kiri-kanan akan mendorong kotak ke tengah web */
+        line-height: 1; /* Memberi jarak antar baris agar lebih enak dibaca */
+        color: var(--primary);
+      }
+      .section-subtitle {
+        text-align: center; /* Teks rata tengah */
+        max-width: 700px; /* Membatasi lebar teks agar tidak "melepet" ke pinggir */
+        margin: 0 auto 40px; /* 'auto' di kiri-kanan akan mendorong kotak ke tengah web */
+        line-height: 1.6; /* Memberi jarak antar baris agar lebih enak dibaca */
+        color: #666; /* Opsional: warna abu-abu agar tidak terlalu kontras */
+      }
       @media (max-width: 768px) {
         .hero-product {
           padding: 150px 0 60px;
@@ -257,6 +271,33 @@
                 komprehensif melalui ekstraksi data spasial yang terotomatisasi.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="webgis-section">
+        <div class="container">
+          <h2 class="section-title">WEBGIS Interaktif</h2>
+          <p class="section-subtitle">
+            Live Preview: Integrasi data spasial Sub DAS Tanralili secara
+            aktual. Gunakan fitur interaktif untuk menganalisis atribut tutupan
+            lahan dan geologi.
+          </p>
+
+          <div class="webgis-container reveal-init">
+            <iframe
+              src="../webgis/webgis.html"
+              title="WebGIS Sub DAS Tanralili"
+              class="webgis-iframe"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="webgis-hint reveal-init">
+            <p>
+              * Klik pada poligon peta untuk memunculkan panel informasi atribut
+              di sisi kiri layar.
+            </p>
           </div>
         </div>
       </section>
