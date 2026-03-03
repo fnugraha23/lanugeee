@@ -13,16 +13,12 @@
 }
 
 /* --- PERBAIKAN: BLUR CONTENT STRATEGY --- */
-/* Target hanya elemen <main>. Header tidak dimasukkan agar 
-   menu navigasi tetap tajam (tidak blur).
-*/
 body.nav-open main {
   filter: blur(3px);
-  pointer-events: none; /* Mencegah klik pada konten saat menu terbuka */
+  pointer-events: none;
   user-select: none;
 }
 
-/* Transisi halus agar efek blur sinkron dengan animasi nav */
 main,
 .hero-about,
 .vm-wrapper-grid,
@@ -31,7 +27,6 @@ main,
     filter 0.4s ease,
     transform 0.4s ease;
 }
-
 /* --- AKHIR PERBAIKAN --- */
 
 .section {
@@ -93,7 +88,7 @@ main,
 .header {
   position: sticky;
   top: 0;
-  z-index: 2000; /* Ditingkatkan agar selalu di atas filter blur main */
+  z-index: 2000;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -117,19 +112,29 @@ main,
   height: 64px;
 }
 
+/* --- PERBAIKAN LOGO: Mencegah Logo Gepeng --- */
+.logo {
+  flex-shrink: 0; /* Mengunci agar container logo tidak bisa menyusut */
+  display: flex;
+  align-items: center;
+}
+
 .logo img {
   height: 38px;
   width: auto;
+  object-fit: contain; /* Memastikan rasio gambar tetap aman */
 }
+/* --- AKHIR PERBAIKAN LOGO --- */
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: clamp(12px, 2vw, 30px);
 }
 
 .nav-item {
   position: relative;
+  text-align: center;
 }
 
 .nav a {
@@ -137,6 +142,10 @@ main,
   font-weight: 650;
   position: relative;
   transition: var(--transition);
+
+  /* PERBAIKAN TEKS: Mencegah teks menu bertumpuk 2 baris */
+  white-space: nowrap;
+  text-align: center;
 }
 
 .nav-link-dropdown {
@@ -171,6 +180,9 @@ main,
   color: white !important;
   padding: 8px 18px;
   border-radius: 8px;
+
+  /* PERBAIKAN TOMBOL KONTAK: Mencegah tombol ikut menyusut */
+  flex-shrink: 0;
 }
 
 .nav-cta:hover {
@@ -214,6 +226,8 @@ main,
     padding: 8px 0;
     font-size: 0.9rem;
     color: var(--text-muted);
+    white-space: normal;
+    text-align: left;
   }
   .dropdown a:hover {
     color: var(--primary);
@@ -239,7 +253,7 @@ main,
   background: transparent;
   border: none;
   padding: 0;
-  z-index: 2200; /* Pastikan tombol X di atas segalanya */
+  z-index: 2200;
 }
 
 .nav-toggle span {
@@ -274,7 +288,7 @@ main,
     overflow-y: auto;
     align-items: center;
     text-align: center;
-    z-index: 2100; /* Di atas overlay, di bawah toggle */
+    z-index: 2100;
   }
   .nav.show {
     right: 0;
@@ -312,6 +326,7 @@ main,
     font-size: 0.9rem;
     color: var(--text-muted);
     text-align: center;
+    white-space: normal;
   }
   .has-dropdown.active .dropdown {
     max-height: 300px;
@@ -327,7 +342,7 @@ main,
 .nav-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.1); /* Tipis saja agar blur main lebih dominan */
+  background: rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
