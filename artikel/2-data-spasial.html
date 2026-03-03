@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perbedaan Data Vektor dan Raster dalam GIS | LONTARA</title>
+    <title>Perbedaan Data Vektor dan Raster dalam GIS | Petani Galau</title>
 
     <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <link
@@ -26,10 +26,12 @@
       }
 
       .breadcrumb-back {
-        background-color: var(--primary);
-        color: white !important;
+        background-color: var(
+          --primary
+        ); /* Latar belakang gelap seperti tombol Kontak */
+        color: white !important; /* Teks putih wajib */
         padding: 10px 24px;
-        border-radius: 10px;
+        border-radius: 10px; /* Sudut membulat proporsional */
         font-size: 0.9rem;
         margin-bottom: 35px;
         display: inline-flex;
@@ -39,6 +41,33 @@
         transition: 0.3s ease;
         font-weight: 700;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .breadcrumb-back:hover {
+        background-color: var(
+          --accent
+        ); /* Berubah warna saat kursor menunjuk */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .article-meta-badge {
+        color: var(--accent);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .article-title {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        max-width: 900px;
+        margin: 0 auto 25px;
+        color: var(--primary);
+        line-height: 1.2;
+        font-weight: 800;
       }
 
       .reading-container {
@@ -170,20 +199,56 @@
   <body>
     <header class="header" id="header">
       <div class="progress-bar" id="progress-bar"></div>
+
       <div class="container nav-container">
         <div class="logo">
-          <a href="../beranda.html"
-            ><img
+          <a href="../beranda.html">
+            <img
               src="../assets/images/logo.png"
               alt="Petani Galau Logo"
               width="120"
-          /></a>
+              height="38"
+            />
+          </a>
         </div>
+
         <nav class="nav" id="nav-menu">
-          <a href="../layanan/layanan.html" class="nav-item">Layanan</a>
-          <a href="../artikel/artikel.html" class="nav-item">Artikel</a>
+          <div class="nav-item">
+            <a href="../layanan/layanan.html">Layanan</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="../portofolio/portofolio.html">Portofolio</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="../artikel/artikel.html">Artikel</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="../publikasi/publikasi.html">Publikasi</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="../aset-digital/aset-digital.html">Aset Digital</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="../tentang/tentang.html">Tentang</a>
+          </div>
+
           <a href="../kontak/kontak.html" class="nav-cta">Kontak</a>
         </nav>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -192,14 +257,25 @@
         <header class="article-header">
           <div class="container">
             <a href="artikel.html" class="breadcrumb-back">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
               Kembali ke Artikel
             </a>
-            <span class="article-meta-badge">Akademi GIS</span>
+            <span class="article-meta-badge">Edukasi Spasial</span>
             <h1 class="article-title">
-              Vektor vs Raster: Memahami Struktur Data Spasial
+              Perbedaan Data Vector dan Raster dalam GIS
             </h1>
-            <p style="color: var(--text-muted)">
-              Edisi Lengkap untuk Mahasiswa & Praktisi
+            <p style="color: var(--text-muted); font-size: 1.1rem">
+              Oleh <strong>Fajar Nugraha</strong> &middot; 4 Menit Membaca
             </p>
           </div>
         </header>
