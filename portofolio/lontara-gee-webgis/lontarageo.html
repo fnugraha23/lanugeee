@@ -27,7 +27,7 @@
       /* =========================================
          CUSTOM STYLING SHOWCASE LONTARAGEO
          ========================================= */
-      
+
       .hero-detail {
         padding: 180px 0 80px;
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -64,7 +64,10 @@
         box-shadow: var(--shadow-sm);
         transition: 0.3s;
       }
-      .tech-item:hover { transform: translateY(-3px); border-color: var(--accent); }
+      .tech-item:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+      }
 
       /* Container Iframe Aplikasi */
       .app-display-window {
@@ -110,26 +113,94 @@
       }
 
       @media (max-width: 768px) {
-        .hero-detail { padding: 140px 0 60px; }
-        .app-display-window { height: 500px; }
-        .grid-2 { gap: 40px !important; }
+        .hero-detail {
+          padding: 140px 0 60px;
+        }
+        .app-display-window {
+          height: 500px;
+        }
+        .grid-2 {
+          gap: 40px !important;
+        }
       }
     </style>
   </head>
 
   <body>
     <header class="header" id="header">
+      <div class="progress-bar" id="progress-bar"></div>
+
       <div class="container nav-container">
         <div class="logo">
           <a href="../../beranda.html">
-            <img src="../../assets/images/logo.png" alt="Lontara Logo" width="120" height="38" />
+            <img
+              src="../../assets/images/logo.png"
+              alt="Lontara Logo"
+              width="120"
+              height="38"
+            />
           </a>
         </div>
-        <nav class="nav">
-          <div class="nav-item"><a href="../portofolio.html">Portofolio</a></div>
-          <div class="nav-item"><a href="../../tentang/tentang.html">Tentang</a></div>
+
+        <nav class="nav" id="nav-menu">
+          <div class="nav-item">
+            <a href="../../layanan/layanan.html">Layanan</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../portofolio/portofolio.html">Portofolio</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../artikel/artikel.html">Artikel</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../publikasi/publikasi.html">Publikasi</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../aset-digital/aset-digital.html">Aset Digital</a>
+          </div>
+          <div class="nav-item">
+            <a href="../../tentang/tentang.html">Tentang</a>
+          </div>
+
+          <div class="nav-search">
+            <form id="search-form" action="../../search/" method="GET">
+              <input
+                type="text"
+                name="q"
+                placeholder="Cari layanan, artikel..."
+                class="search-input"
+                required
+              />
+              <button type="submit" class="search-btn" aria-label="Cari">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+            </form>
+          </div>
+
           <a href="../../kontak/kontak.html" class="nav-cta">Kontak</a>
         </nav>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -137,25 +208,61 @@
       <section class="hero-detail">
         <div class="container">
           <a href="../portofolio.html" class="breadcrumb-back">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            >
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
             Kembali ke Portofolio
           </a>
-          <br><br>
-          <div class="project-badge-container">
-            <span class="product-badge">Cloud Computing</span>
-            <span class="product-badge" style="background: rgba(37, 99, 235, 0.1); color: #2563eb;">Remote Sensing</span>
-          </div>
-          <h1 style="font-size: 3.5rem; color: var(--primary); font-weight: 800; margin-bottom: 20px; line-height: 1.2;">
-            LontaraGeo Engine:<br>Otomasi Analisis Spasial
+          <br />
+          <span class="product-badge">Cloud Computing | Remote Sensing</span>
+
+          <h1
+            style="
+              font-size: 3.5rem;
+              color: var(--primary);
+              font-weight: 800;
+              margin-bottom: 20px;
+              line-height: 1.2;
+            "
+          >
+            LontaraGeo Engine:<br />Otomasi Analisis Spasial
           </h1>
-          <p style="max-width: 800px; margin: 0 auto 40px; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8;">
-            Integrasi <b>Google Earth Engine API</b> untuk pemrosesan citra satelit Sentinel-2 dan Landsat secara <i>real-time</i> guna mendukung pengelolaan Sub-DAS Tanralili yang presisi.
+          <p
+            style="
+              max-width: 800px;
+              margin: 0 auto 40px;
+              color: var(--text-muted);
+              font-size: 1.2rem;
+              line-height: 1.8;
+            "
+          >
+            Integrasi <b>Google Earth Engine API</b> untuk pemrosesan citra
+            satelit Sentinel-2 dan Landsat secara <i>real-time</i> guna
+            mendukung pengelolaan Sub-DAS Tanralili yang presisi.
           </p>
-          <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <a href="frontend/index.html" target="_blank" class="btn-primary" style="background: #123b3a;">Buka Layar Penuh (Fullscreen)</a>
+          <div
+            style="
+              display: flex;
+              gap: 15px;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="frontend/index.html"
+              target="_blank"
+              class="btn-primary"
+              style="background: #123b3a"
+              >Buka Layar Penuh (Fullscreen)</a
+            >
             <a href="#demo" class="btn-secondary">Lihat Demo Di Sini</a>
           </div>
         </div>
@@ -163,16 +270,36 @@
 
       <section class="section">
         <div class="container">
-          <div class="grid-2 align-start" style="gap: 80px;">
+          <div class="grid-2 align-start" style="gap: 80px">
             <div>
-              <h2 class="section-title" style="text-align: left; margin-bottom: 25px;">Metodologi & Inovasi</h2>
-              <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
-                Sebagai mahasiswa pascasarjana Ilmu Tanah di <b>IPB University</b>, saya mengembangkan platform ini untuk memecahkan masalah efisiensi dalam pengolahan data spasial riset saya mengenai <b>Kinerja Sub-DAS Tanralili</b> di Sulawesi Selatan.
+              <h2
+                class="section-title"
+                style="text-align: left; margin-bottom: 25px"
+              >
+                Metodologi & Inovasi
+              </h2>
+              <p
+                style="
+                  color: var(--text-muted);
+                  line-height: 1.8;
+                  margin-bottom: 20px;
+                "
+              >
+                Sebagai mahasiswa pascasarjana Ilmu Tanah di
+                <b>IPB University</b>, saya mengembangkan platform ini untuk
+                memecahkan masalah efisiensi dalam pengolahan data spasial riset
+                saya mengenai <b>Kinerja Sub-DAS Tanralili</b> di Sulawesi
+                Selatan.
               </p>
-              <p style="color: var(--text-muted); line-height: 1.8;">
-                Alih-alih mengunduh citra secara manual, sistem ini memanfaatkan <b>Python Flask</b> untuk menjembatani parameter input pengguna langsung ke <i>cloud processing</i> Google. Algoritma menyertakan <b>Cloud Masking</b> otomatis dan perhitungan indeks vegetasi (NDVI/EVI) untuk memantau kesehatan tutupan lahan secara aktual.
+              <p style="color: var(--text-muted); line-height: 1.8">
+                Alih-alih mengunduh citra secara manual, sistem ini memanfaatkan
+                <b>Python Flask</b> untuk menjembatani parameter input pengguna
+                langsung ke <i>cloud processing</i> Google. Algoritma
+                menyertakan <b>Cloud Masking</b> otomatis dan perhitungan indeks
+                vegetasi (NDVI/EVI) untuk memantau kesehatan tutupan lahan
+                secara aktual.
               </p>
-              
+
               <div class="tech-stack-grid">
                 <div class="tech-item">Python Flask</div>
                 <div class="tech-item">GEE API</div>
@@ -183,31 +310,68 @@
             </div>
 
             <div class="methodology-box">
-              <h3 style="color: var(--primary); margin-bottom: 20px;">Fitur Unggulan</h3>
-              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">
-                <li style="display: flex; gap: 12px;">
-                  <span style="color: var(--accent); font-weight: 900;">01.</span>
-                  <span><b>Efisiensi Komputasi:</b> Pemrosesan ribuan hektar data citra satelit dilakukan di server cloud tanpa membebani perangkat lokal.</span>
+              <h3 style="color: var(--primary); margin-bottom: 20px">
+                Fitur Unggulan
+              </h3>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 15px;
+                "
+              >
+                <li style="display: flex; gap: 12px">
+                  <span style="color: var(--accent); font-weight: 900"
+                    >01.</span
+                  >
+                  <span
+                    ><b>Efisiensi Komputasi:</b> Pemrosesan ribuan hektar data
+                    citra satelit dilakukan di server cloud tanpa membebani
+                    perangkat lokal.</span
+                  >
                 </li>
-                <li style="display: flex; gap: 12px;">
-                  <span style="color: var(--accent); font-weight: 900;">02.</span>
-                  <span><b>Custom AOI:</b> Fleksibilitas menentukan area analisis (Area of Interest) melalui alat gambar poligon yang interaktif.</span>
+                <li style="display: flex; gap: 12px">
+                  <span style="color: var(--accent); font-weight: 900"
+                    >02.</span
+                  >
+                  <span
+                    ><b>Custom AOI:</b> Fleksibilitas menentukan area analisis
+                    (Area of Interest) melalui alat gambar poligon yang
+                    interaktif.</span
+                  >
                 </li>
-                <li style="display: flex; gap: 12px;">
-                  <span style="color: var(--accent); font-weight: 900;">03.</span>
-                  <span><b>Monitoring Temporal:</b> Mendukung perbandingan indeks kesehatan lahan antar periode waktu untuk melihat tren perubahan penggunaan lahan.</span>
+                <li style="display: flex; gap: 12px">
+                  <span style="color: var(--accent); font-weight: 900"
+                    >03.</span
+                  >
+                  <span
+                    ><b>Monitoring Temporal:</b> Mendukung perbandingan indeks
+                    kesehatan lahan antar periode waktu untuk melihat tren
+                    perubahan penggunaan lahan.</span
+                  >
                 </li>
               </ul>
             </div>
           </div>
 
-          <div id="demo" style="margin-top: 100px;">
+          <div id="demo" style="margin-top: 100px">
             <h2 class="section-title">Aplikasi WebGIS Interaktif</h2>
-            <p class="section-subtitle">Pilihlah satelit, tentukan rentang waktu, dan gambarlah area pada peta untuk memulai komputasi spasial.</p>
-            
+            <p class="section-subtitle">
+              Pilihlah satelit, tentukan rentang waktu, dan gambarlah area pada
+              peta untuk memulai komputasi spasial.
+            </p>
+
             <div class="app-display-window">
-              <iframe src="frontend/index.html" class="app-iframe" title="LontaraGeo Live App"></iframe>
-              <div class="floating-hint">💡 Tips: Gunakan ikon poligon di pojok kiri atas peta</div>
+              <iframe
+                src="frontend/index.html"
+                class="app-iframe"
+                title="LontaraGeo Live App"
+              ></iframe>
+              <div class="floating-hint">
+                💡 Tips: Gunakan ikon poligon di pojok kiri atas peta
+              </div>
             </div>
           </div>
         </div>
@@ -216,9 +380,14 @@
       <section class="section-cta-green">
         <div class="container">
           <h2 class="reveal-init">Butuh Analisis Spasial Kustom?</h2>
-          <p class="reveal-init">Mari diskusikan bagaimana teknologi Web-GIS dapat membantu riset atau pengelolaan sumber daya lahan organisasi Anda.</p>
+          <p class="reveal-init">
+            Mari diskusikan bagaimana teknologi Web-GIS dapat membantu riset
+            atau pengelolaan sumber daya lahan organisasi Anda.
+          </p>
           <div class="reveal-init">
-            <a href="../../kontak/kontak.html" class="btn-cta-white">Hubungi Saya Sekarang</a>
+            <a href="../../kontak/kontak.html" class="btn-cta-white"
+              >Hubungi Saya Sekarang</a
+            >
           </div>
         </div>
       </section>
@@ -228,10 +397,14 @@
       <div class="container footer-container">
         <div>
           <h4>Lontara</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted)">Soil Science & Geomorphology Studio.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">
+            Soil Science & Geomorphology Studio.
+          </p>
         </div>
         <div>
-          <p style="font-size: 0.9rem; color: var(--text-muted)">&copy; 2026 Lontara. Seluruh Hak Cipta Dilindungi.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">
+            &copy; 2026 Lontara. Seluruh Hak Cipta Dilindungi.
+          </p>
         </div>
       </div>
     </footer>
