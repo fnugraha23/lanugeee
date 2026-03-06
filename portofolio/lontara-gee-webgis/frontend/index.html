@@ -151,9 +151,22 @@
               <input type="date" id="endDate" value="2024-12-31">
             </div>
           </div>
-          <div class="form-group">
-            <label>Tutupan Awan (<span id="cloudValue" style="color: var(--accent)">20%</span>)</label>
-            <input type="range" id="cloudCover" min="0" max="100" value="20" oninput="document.getElementById('cloudValue').innerText = this.value + '%'">
+          <div class="form-group" style="margin-top: 20px">
+            <label for="cloudCover">
+              Batas Tutupan Awan
+              <span class="range-value" id="cloudValue">15%</span>
+            </label>
+            <input
+              type="range"
+              id="cloudCover"
+              min="0"
+              max="100"
+              value="15"
+              oninput="
+                document.getElementById('cloudValue').innerText =
+                  this.value + '%'
+              "
+            />
           </div>
         </div>
 
@@ -297,3 +310,4 @@
     </script>
   </body>
 </html>
+
