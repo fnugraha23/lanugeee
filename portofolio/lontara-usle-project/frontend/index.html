@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lontara-USLE | Analisis Erosi Sub-DAS Tanralili</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      :root {
+        --primary: #123b3a; /* Hijau Lontara */
+        --accent: #00b8a9;
+        --bg-light: #f8fafc;
+        --border: #e2e8f0;
+        --text-main: #334155;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        color: var(--text-main);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* Navigation */
+      .navbar {
+        background: white;
+        padding: 0 24px;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+      }
+      .brand {
+        font-weight: 800;
+        color: var(--primary);
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-left: 20px;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* Main Layout */
+      .main-wrapper {
+        display: flex;
+        height: calc(100vh - 60px);
+        width: 100%;
+      }
+
+      /* Sidebar Control Panel */
+      .sidebar {
+        width: 380px;
+        background: white;
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        z-index: 10;
+      }
+      .panel-padding {
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+      }
+      h2 {
+        font-size: 1.1rem;
+        color: var(--primary);
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      p.subtitle {
+        font-size: 0.8rem;
+        color: #64748b;
+        line-height: 1.4;
+      }
+
+      .hint-box {
+        background: var(--bg-light);
+        border: 1px dashed #cbd5e1;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+      }
+      .hint-box.active {
+        background: #ecfdf5;
+        border-color: var(--accent);
+        color: #065f46;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+      label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      select,
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-light);
+        font-size: 0.85rem;
+      }
+
+      .btn-process {
+        width: 100%;
+        padding: 12px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn-process:hover:not(:disabled) {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+      .btn-process:disabled {
+        background: #cbd5e1;
+        cursor: not-allowed;
+      }
+
+      /* Map Display Area */
+      .map-area {
+        flex-grow: 1;
+        position: relative;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+
+      /* Loading Overlay - Enhanced Z-Index */
+      .map-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(2px);
+        z-index: 1100;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .spinner {
+        width: 45px;
+        height: 45px;
+        border: 4px solid var(--border);
+        border-top: 4px solid var(--accent);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Basemap Selection UI */
+      .basemap-container {
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+      .basemap-toggle {
+        width: 44px;
+        height: 44px;
+        background: white;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+      .basemap-menu {
+        display: none;
+        background: white;
+        padding: 10px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        gap: 10px;
+        animation: fadeIn 0.2s ease-out;
+      }
+      .basemap-menu.active {
+        display: flex;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .basemap-option {
+        cursor: pointer;
+        width: 65px;
+        text-align: center;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: 0.3s;
+      }
+      .basemap-option img {
+        width: 100%;
+        height: 40px;
+        display: block;
+        object-fit: cover;
+      }
+      .basemap-option span {
+        font-size: 9px;
+        font-weight: 800;
+        display: block;
+        padding: 2px 0;
+      }
+      .basemap-option.active {
+        border-color: var(--accent);
+        background: rgba(0, 184, 169, 0.1);
+      }
+
+      /* Map Legend - Fixed Visibility */
+      .legend {
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        width: 230px;
+        display: none;
+      }
+      .legend h4 {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+        color: var(--primary);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 5px;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .color-box {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .footer-credit {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        z-index: 1000;
+        font-weight: 700;
+        color: var(--primary);
+        box-shadow: var(--shadow);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand"><i class="fa-solid fa-leaf"></i> Lontara-USLE</div>
+      <div class="nav-links">
+        <a href="../../index.html">Beranda</a>
+        <a href="../portofolio.html">← Portofolio</a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <aside class="sidebar">
+        <div class="panel-padding">
+          <h2>Analisis Erosi Tanah</h2>
+          <p class="subtitle">
+            Estimasi laju erosi USLE ($A = R \times K \times LS \times C \times
+            P$) pada Sub-DAS Tanralili.
+          </p>
+        </div>
+
+        <div class="panel-padding">
+          <div class="hint-box" id="aoiStatus">
+            <strong
+              ><i class="fa-solid fa-draw-polygon"></i> 1. Area of Interest
+              (AOI)</strong
+            ><br />
+            Gunakan tool di peta untuk menentukan batas area analisis.
+          </div>
+
+          <div class="form-group">
+            <label>Erosivitas Hujan (Faktor R)</label>
+            <select id="rainSource">
+              <option value="CHIRPS">CHIRPS v3 Near-Real-Time</option>
+              <option value="NASA">NASA POWER LARC</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Erodibilitas Tanah (Faktor K)</label>
+            <select id="soilSource">
+              <option value="SOILGRID">OpenLandMap Soil Texture</option>
+              <option value="MAP_UNIT">Peta Tanah Skala Tinjau</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Panjang & Kemiringan (Faktor LS)</label>
+            <select id="demSource">
+              <option value="ALOS">ALOS DSM v4.1 (30m)</option>
+              <option value="SRTM">SRTM Digital Elevation (30m)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Vegetasi & Manajemen (Faktor C)</label>
+            <select id="landuseSource">
+              <option value="ESRI">ESA WorldCover v200 (10m)</option>
+              <option value="MODIS">MODIS Land Cover Yearly</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Praktik Konservasi (Faktor P)</label>
+            <select id="factorP">
+              <option value="1.0">Tanpa Konservasi (1.0)</option>
+              <option value="0.04">Teras Bangku Baik (0.04)</option>
+              <option value="0.15">Teras Bangku Sedang (0.15)</option>
+              <option value="0.40">Teras Tradisional (0.40)</option>
+              <option value="0.50">Searah Kontur (0.50)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tahun Analisis</label>
+            <input
+              type="number"
+              value="2024"
+              min="2015"
+              max="2026"
+              id="analysisYear"
+            />
+          </div>
+        </div>
+
+        <div class="panel-padding" style="border-bottom: none">
+          <div class="form-group">
+            <label>Output Layer</label>
+            <select id="outputSelect">
+              <option value="EROSION_HAZARD">Tingkat Bahaya Erosi (TBE)</option>
+              <option value="R_FACTOR">Peta Erosivitas (R)</option>
+              <option value="K_FACTOR">Peta Erodibilitas (K)</option>
+              <option value="LS_FACTOR">Peta Faktor LS</option>
+              <option value="C_FACTOR">Peta Faktor C</option>
+            </select>
+          </div>
+
+          <div class="btn-group" style="display: flex; gap: 10px">
+            <button class="btn-process" id="btnProcess" disabled>
+              <i class="fa-solid fa-gear"></i> Run Analysis
+            </button>
+            <button
+              id="btnClear"
+              class="btn-process"
+              style="background: #fee2e2; color: #ef4444; width: 50px"
+              title="Hapus AOI"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="map-area">
+        <div id="map"></div>
+
+        <div class="map-overlay" id="loader">
+          <div class="spinner"></div>
+          <p style="margin-top: 15px; font-weight: 800; color: var(--primary)">
+            Processing on Earth Engine...
+          </p>
+        </div>
+
+        <div class="basemap-container">
+          <div class="basemap-toggle" id="basemapToggle" title="Ganti Basemap">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div class="basemap-menu" id="basemapMenu">
+            <div
+              class="basemap-option active"
+              id="opt-esri"
+              onclick="changeBasemap('esri')"
+            >
+              <img
+                src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/512/512"
+                alt="Satellite"
+              />
+              <span>Satellite</span>
+            </div>
+            <div
+              class="basemap-option"
+              id="opt-osm"
+              onclick="changeBasemap('osm')"
+            >
+              <img
+                src="https://a.tile.openstreetmap.org/10/512/512.png"
+                alt="Street"
+              />
+              <span>Street</span>
+            </div>
+            <div
+              class="basemap-option"
+              id="opt-carto"
+              onclick="changeBasemap('carto')"
+            >
+              <img
+                src="https://a.basemaps.cartocdn.com/light_all/10/512/512.png"
+                alt="Light"
+              />
+              <span>Light</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="legend" id="mapLegend">
+          <h4>Legenda</h4>
+          <div id="legendContent"></div>
+        </div>
+
+        <div class="footer-credit">
+          Fajar Nugraha | Master of Soil Science IPB & Soil Science UNHAS
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <script src="js/ui.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/api.js"></script>
+
+    <script>
+      /**
+       * INISIALISASI FINAL
+       * Menggunakan window.mapInstance agar sinkron dengan api.js
+       */
+      window.mapInstance = L.map("map", { zoomControl: false }).setView(
+        [-5.14, 119.53],
+        11,
+      );
+      L.control.zoom({ position: "topright" }).addTo(window.mapInstance);
+
+      // Basemap Awal (Satellite)
+      L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      ).addTo(window.mapInstance);
+
+      // Hubungkan tombol ke logika pemrosesan
+      document
+        .getElementById("btnProcess")
+        .addEventListener("click", runUSLEAnalysis);
+    </script>
+  </body>
+</html>
