@@ -1,4 +1,0 @@
-flask
-flask-cors
-earthengine-api
-python-dotenv
