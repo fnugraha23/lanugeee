@@ -7,8 +7,8 @@
 :root {
   /* --- 1. BRAND COLORS (Environmental Intelligence) --- */
   --primary: #1b4332; /* Forest Green - Warna Utama */
-  --primary-light: #2d6a4f; /* Hijau Daun - Untuk Hover */
-  --accent: #00b8a9; /* Tech Teal - Warna Aksen/Teknologi */
+  --primary-light: #00b8a9; /* Hijau Daun - Untuk Hover */
+  --accent: #1b4332; /* Tech Teal - Warna Aksen/Teknologi */
   --accent-soft: rgba(0, 184, 169, 0.12);
   --accent-glow: rgba(0, 184, 169, 0.4);
 
@@ -46,6 +46,10 @@
 /* --- 5. DARK MODE OVERRIDE --- */
 /* Aktif ketika class .dark-theme ditambahkan ke tag <body> via JS */
 body.dark-theme {
+  /* --- 1. BRAND COLORS (Environmental Intelligence) --- */
+  --primary: #00b8a9; /* Forest Green - Warna Utama */
+  --primary-light: #1b4332; /* Hijau Daun - Untuk Hover */
+  --accent: #00b8a9; /* Tech Teal - Warna Aksen/Teknologi */
   --bg-main: #020617; /* Slate 950 - Latar Pekat Mode Gelap */
   --bg-light: #0f172a; /* Slate 900 - Latar Kartu Mode Gelap */
   --bg-glass: rgba(2, 6, 23, 0.85);
