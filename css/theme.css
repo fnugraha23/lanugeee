@@ -20,6 +20,7 @@
   --text-main: #0f172a; /* Slate 900 - Teks Utama (Sangat Kontras) */
   --text-muted: #64748b; /* Slate 500 - Teks Sekunder/Paragraf */
   --text-light: #f1f5f9; /* Slate 100 - Teks di atas warna gelap */
+  --text-white: #ffffff;
 
   --border: #e2e8f0; /* Slate 200 - Garis pembatas ringan */
 
