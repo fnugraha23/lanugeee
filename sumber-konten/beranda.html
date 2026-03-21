@@ -1,3 +1,79 @@
+<style>
+  .hero-image .container-relative {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 360px; /* Ukuran dioptimalkan agar proporsional */
+    aspect-ratio: 4/5;
+    margin-top: 15px;
+  }
+
+  .hero-image .stack-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 4px solid white; /* Frame kartu yang lebih tegas */
+    background: white;
+
+    /* Durasi total 9 detik (3 detik per gambar) */
+    animation: aestheticCardSwap 9s infinite ease-in-out;
+    will-change: transform, z-index;
+  }
+
+  .hero-image .slide-1 {
+    animation-delay: 0s;
+  }
+  .hero-image .slide-2 {
+    animation-delay: -3s;
+  }
+  .hero-image .slide-3 {
+    animation-delay: -6s;
+  }
+
+  /* CHOREOGRAPHY ANIMASI YANG LEBIH RAPAT */
+  @keyframes aestheticCardSwap {
+    /* 1. POSISI PALING DEPAN (Tegak lurus, ukuran penuh) */
+    0%,
+    25% {
+      z-index: 3;
+      transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+    }
+
+    /* 2. SWIPE KANAN (Hanya bergeser secukupnya untuk keluar dari tumpukan depan) */
+    30% {
+      z-index: 3;
+      transform: translateX(65%) translateY(5px) scale(0.95) rotate(6deg);
+    }
+
+    /* 3. MENYELIP KE PALING BELAKANG (Mengecil & agak miring ke kiri) */
+    35%,
+    60% {
+      z-index: 1;
+      transform: translateX(-10px) translateY(15px) scale(0.85) rotate(-4deg);
+    }
+
+    /* 4. MAJU KE POSISI TENGAH (Sedikit membesar & miring ke kanan) */
+    65%,
+    95% {
+      z-index: 2;
+      transform: translateX(5px) translateY(8px) scale(0.92) rotate(2deg);
+    }
+
+    /* KEMBALI KE DEPAN */
+    100% {
+      z-index: 3;
+      transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+    }
+  }
+</style>
+
 <section
   class="hero reveal-init"
   style="padding-top: 80px; padding-bottom: 60px"
@@ -64,32 +140,34 @@
       </div>
 
       <div class="hero-image reveal-init" style="text-align: center">
-        <div style="position: relative; display: inline-block">
+        <div class="container-relative">
           <div
             style="
               position: absolute;
-              inset: -15px;
+              inset: -10px;
               background: var(--primary);
               opacity: 0.1;
-              border-radius: 30px;
+              border-radius: 25px;
               z-index: 0;
-              transform: rotate(-5deg);
+              transform: rotate(-4deg);
             "
           ></div>
+
           <img
+            class="stack-card slide-1"
             src="aset/images/foto-pribadi.jpeg"
-            alt="Fajar Nugraha"
-            style="
-              position: relative;
-              z-index: 1;
-              width: 100%;
-              max-width: 400px;
-              aspect-ratio: 4/5;
-              object-fit: cover;
-              border-radius: 20px;
-              box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            "
-            onerror="this.style.display = 'none'"
+            alt="Fajar Nugraha - WebGIS Project"
+          />
+          <img
+            class="stack-card slide-2"
+            src="aset/images/foto-pribadi-2.JPG"
+            alt="Fajar Nugraha - Wisuda IPB M.Si"
+          />
+          <img
+            class="stack-card slide-3"
+            src="aset/images/foto-pribadi-3.jpg"
+            alt="Fajar Nugraha - Python GIS Data Automation"
+            onerror="this.src = 'aset/images/foto-pribadi.jpeg'"
           />
         </div>
       </div>
@@ -414,10 +492,9 @@
         class="card reveal-init"
         style="border-left: 4px solid var(--primary); transition-delay: 0.1s"
       >
-        <i
-          class="fa-solid fa-graduation-cap"
-          style="font-size: 2rem; color: var(--primary); margin-bottom: 20px"
-        ></i>
+        <div class="card-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
         <h3 style="margin-bottom: 15px">Edukasi Mumpuni</h3>
         <p>
           Meraih gelar Magister Sains (M.Si) Ilmu Tanah dari
@@ -430,10 +507,9 @@
         class="card reveal-init"
         style="border-left: 4px solid var(--accent); transition-delay: 0.2s"
       >
-        <i
-          class="fa-solid fa-book-journal-whills"
-          style="font-size: 2rem; color: var(--accent); margin-bottom: 20px"
-        ></i>
+        <div class="card-icon">
+          <i class="fa-solid fa-book-journal-whills"></i>
+        </div>
         <h3 style="margin-bottom: 15px">Riset & Publikasi</h3>
         <p>
           Memvalidasi temuan akademis melalui dua publikasi jurnal terakreditasi
@@ -446,10 +522,9 @@
         class="card reveal-init"
         style="border-left: 4px solid #2c3e50; transition-delay: 0.3s"
       >
-        <i
-          class="fa-solid fa-briefcase"
-          style="font-size: 2rem; color: #2c3e50; margin-bottom: 20px"
-        ></i>
+        <div class="card-icon">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
         <h3 style="margin-bottom: 15px">Pengalaman Praktis</h3>
         <p>
           Berperan aktif sebagai Tenaga Support di
