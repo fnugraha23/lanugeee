@@ -6,7 +6,7 @@
  */
 
 const AppShell = {
-routeMap: {
+  routeMap: {
     // --- HALAMAN UTAMA ---
     "beranda": { url: "sumber-konten/beranda.html", title: "Beranda | Lontara Tech" },
     "layanan": { url: "sumber-konten/layanan/layanan.html", title: "Layanan | Lontara Tech" },
@@ -52,21 +52,41 @@ routeMap: {
     this.contentArea = document.getElementById("render-konten");
     this.progressBar = document.getElementById("progress-bar");
 
+    // 1. Intersep Klik pada Tautan Routing Saja (.nav-link-ajax)
     document.body.addEventListener("click", (e) => {
       const link = e.target.closest(".nav-link-ajax");
+      
+      // Jika itu adalah link routing (pindah halaman HTML)
       if (link) {
         e.preventDefault(); 
         const href = link.getAttribute("href");
         const alias = href.startsWith("#") ? href.substring(1) : href;
         this.navigateTo(alias);
       }
+      
+      // PERBAIKAN: Tangani link scroll-to-id (Smooth Scroll)
+      const scrollLink = e.target.closest("a[href^='#']:not(.nav-link-ajax)");
+      if (scrollLink) {
+        e.preventDefault();
+        const targetId = scrollLink.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          // Scroll halus ke elemen yang dituju
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Memperbarui URL tanpa memicu 'hashchange' agar halaman tidak termuat ulang
+          history.pushState(null, null, `#${targetId}`);
+        }
+      }
     });
 
+    // 2. Pantau Perubahan URL
     window.addEventListener("hashchange", () => {
       this.loadContentFromHash();
     });
 
-    // Langsung muat konten tanpa menunggu Firebase!
+    // 3. Muat halaman pertama kali
     this.loadContentFromHash();
   },
 
@@ -76,8 +96,20 @@ routeMap: {
 
   async loadContentFromHash() {
     let alias = window.location.hash.substring(1);
+    
+    // Default ke Beranda jika kosong
     if (!alias || alias === "" || alias === "/") {
       alias = "beranda";
+    }
+
+    // PERBAIKAN PENTING: Cegah routing ulang jika yang diklik adalah anchor ID di halaman yang sedang aktif
+    // Misalnya user sedang di '#layanan', lalu klik href='#features' (menjadi '#features' di URL)
+    // Jika 'features' tidak ada di routeMap, kita cek apakah elemen id="features" ada di halaman saat ini.
+    // Jika ada, batalkan proses fetch file HTML (karena tidak perlu).
+    const isAnchorInPage = document.getElementById(alias);
+    if (isAnchorInPage && !this.routeMap[alias]) {
+      isAnchorInPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return; // Berhenti di sini, jangan lakukan fetch
     }
 
     const route = this.routeMap[alias];
@@ -88,6 +120,10 @@ routeMap: {
     }
 
     document.title = route.title;
+    
+    // Simpan route aktif terakhir agar kita tahu halaman utamanya apa
+    this.currentMainRoute = alias;
+    
     this.fetchAndRender(route.url, alias);
   },
 
