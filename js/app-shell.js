@@ -6,14 +6,10 @@
  */
 
 const AppShell = {
-  routeMap: {
+routeMap: {
     // --- HALAMAN UTAMA ---
     "beranda": { url: "sumber-konten/beranda.html", title: "Beranda | Lontara Tech" },
     "layanan": { url: "sumber-konten/layanan/layanan.html", title: "Layanan | Lontara Tech" },
-    "layanan/pemodelan-das": { url: "sumber-konten/layanan/analisis-spasial/pemodelan-das.html", title: "Klasifikasi Lahan | Lontara Tech" },
-    "layanan/data-tutupan-lahan": { url: "sumber-konten/layanan/data-spasial/data-tutupan-lahan.html", title: "Data Tutupan Lahan | Lontara Tech" },
-    "layanan/webgis-statis-biasa": { url: "sumber-konten/layanan/webgis/webgis-statis-biasa.html", title: "WebGIS Statis | Lontara Tech" },
-    "layanan/website-portofolio-1": { url: "sumber-konten/layanan/website/website-portofolio-1.html", title: "Website Portofolio | Lontara Tech" },
     "portofolio": { url: "sumber-konten/portofolio/portofolio.html", title: "Portofolio | Lontara Tech" },
     "artikel": { url: "sumber-konten/artikel/artikel.html", title: "Artikel | Lontara Tech" },
     "publikasi": { url: "sumber-konten/publikasi/publikasi.html", title: "Publikasi | Lontara Tech" },
@@ -43,8 +39,74 @@ const AppShell = {
 
     // --- ASET DIGITAL ---
     "aset-digital/batas-admin-2024": { url: "sumber-konten/aset-digital/gratis/batas-admin-big-2024.html", title: "Batas Admin BIG 2024 | Aset Digital Lontara" },
-    "aset-digital/tool-lereng": { url: "sumber-konten/aset-digital/premium/toolbox-lereng.html", title: "Toolbox Lereng | Aset Digital Lontara" }
-  },
+    "aset-digital/tool-lereng": { url: "sumber-konten/aset-digital/premium/toolbox-lereng.html", title: "Toolbox Lereng | Aset Digital Lontara" },
+
+    // =========================================================================
+    // KATALOG PRODUK LONTARA TECH (52 Rute Baru)
+    // =========================================================================
+
+    // --- KATEGORI 1: WEBSITE SEDERHANA ---
+    "layanan/sederhana-travel": { url: "sumber-konten/layanan/sederhana-travel.html", title: "Website Sederhana Travel | Lontara Tech" },
+    "layanan/sederhana-apotek": { url: "sumber-konten/layanan/sederhana-apotek.html", title: "Website Sederhana Apotek | Lontara Tech" },
+    "layanan/sederhana-komputer": { url: "sumber-konten/layanan/sederhana-komputer.html", title: "Website Sederhana Komputer | Lontara Tech" },
+    "layanan/sederhana-sekolah": { url: "sumber-konten/layanan/sederhana-sekolah.html", title: "Website Sederhana Sekolah | Lontara Tech" },
+    "layanan/sederhana-organisasi": { url: "sumber-konten/layanan/sederhana-organisasi.html", title: "Website Sederhana Organisasi | Lontara Tech" },
+    "layanan/sederhana-portofolio": { url: "sumber-konten/layanan/sederhana-portofolio.html", title: "Website Sederhana Portofolio | Lontara Tech" },
+    "layanan/sederhana-pertanian": { url: "sumber-konten/layanan/sederhana-pertanian.html", title: "Website Sederhana Pertanian | Lontara Tech" },
+    "layanan/sederhana-konsultan": { url: "sumber-konten/layanan/sederhana-konsultan.html", title: "Website Sederhana Konsultan | Lontara Tech" },
+    "layanan/sederhana-portal-daerah": { url: "sumber-konten/layanan/sederhana-portal-daerah.html", title: "Website Sederhana Portal Daerah | Lontara Tech" },
+    "layanan/sederhana-elearning": { url: "sumber-konten/layanan/sederhana-elearning.html", title: "Website Sederhana E-Learning | Lontara Tech" },
+    "layanan/sederhana-properti": { url: "sumber-konten/layanan/sederhana-properti.html", title: "Website Sederhana Properti | Lontara Tech" },
+    "layanan/sederhana-restoran": { url: "sumber-konten/layanan/sederhana-restoran.html", title: "Website Sederhana Restoran | Lontara Tech" },
+
+    // --- KATEGORI 2: SYSTEM POS ---
+    "layanan/pos-bangunan": { url: "sumber-konten/layanan/pos-bangunan.html", title: "Kasir POS Bangunan | Lontara Tech" },
+    "layanan/pos-fnb": { url: "sumber-konten/layanan/pos-fnb.html", title: "Kasir POS F&B | Lontara Tech" },
+    "layanan/pos-komputer": { url: "sumber-konten/layanan/pos-komputer.html", title: "Kasir POS Komputer | Lontara Tech" },
+    "layanan/pos-minimarket": { url: "sumber-konten/layanan/pos-minimarket.html", title: "Kasir POS Minimarket | Lontara Tech" },
+    "layanan/pos-restoran": { url: "sumber-konten/layanan/pos-restoran.html", title: "Kasir POS Restoran | Lontara Tech" },
+    "layanan/pos-sembako": { url: "sumber-konten/layanan/pos-sembako.html", title: "Kasir POS Sembako | Lontara Tech" },
+    "layanan/pos-apotek": { url: "sumber-konten/layanan/pos-apotek.html", title: "Kasir POS Apotek | Lontara Tech" },
+    "layanan/pos-pertanian": { url: "sumber-konten/layanan/pos-pertanian.html", title: "Kasir POS Pertanian | Lontara Tech" },
+
+    // --- KATEGORI 3: WEBGIS ---
+    "layanan/webgis-classic": { url: "sumber-konten/layanan/webgis-classic.html", title: "Classic WebGIS | Lontara Tech" },
+    "layanan/webgis-landing-map": { url: "sumber-konten/layanan/webgis-landing-map.html", title: "Landing to Map WebGIS | Lontara Tech" },
+    "layanan/webgis-split-screen": { url: "sumber-konten/layanan/webgis-split-screen.html", title: "Split-Screen WebGIS | Lontara Tech" },
+    "layanan/webgis-topnav": { url: "sumber-konten/layanan/webgis-topnav.html", title: "Top-Nav WebGIS | Lontara Tech" },
+    "layanan/webgis-storymap": { url: "sumber-konten/layanan/webgis-storymap.html", title: "Story Map WebGIS | Lontara Tech" },
+    "layanan/webgis-bottom-console": { url: "sumber-konten/layanan/webgis-bottom-console.html", title: "Bottom Console WebGIS | Lontara Tech" },
+    "layanan/webgis-iot-monitoring": { url: "sumber-konten/layanan/webgis-iot-monitoring.html", title: "IoT Monitoring WebGIS | Lontara Tech" },
+    "layanan/webgis-iot-relay": { url: "sumber-konten/layanan/webgis-iot-relay.html", title: "IoT Relay WebGIS | Lontara Tech" },
+
+    // --- KATEGORI 4: INTERMEDIETE ---
+    "layanan/intermediete-iot": { url: "sumber-konten/layanan/intermediete-iot.html", title: "Intermediete IoT | Lontara Tech" },
+    "layanan/intermediete-spektral": { url: "sumber-konten/layanan/intermediete-spektral.html", title: "Intermediete Spektral | Lontara Tech" },
+    "layanan/intermediete-pertanian": { url: "sumber-konten/layanan/intermediete-pertanian.html", title: "Intermediete Pertanian | Lontara Tech" },
+    "layanan/intermediete-bento": { url: "sumber-konten/layanan/intermediete-bento.html", title: "Intermediete Bento OS | Lontara Tech" },
+
+    // --- KATEGORI 5: EXCLUSIVE ---
+    "layanan/exclusive-lumina": { url: "sumber-konten/layanan/exclusive-lumina.html", title: "3D Lumina Glass | Lontara Tech" },
+    "layanan/exclusive-obsidian": { url: "sumber-konten/layanan/exclusive-obsidian.html", title: "3D Obsidian Solid | Lontara Tech" },
+    "layanan/exclusive-kinetix": { url: "sumber-konten/layanan/exclusive-kinetix.html", title: "3D Kinetix Flow | Lontara Tech" },
+    "layanan/exclusive-aura": { url: "sumber-konten/layanan/exclusive-aura.html", title: "3D Aura Chrome | Lontara Tech" },
+    "layanan/exclusive-softscape": { url: "sumber-konten/layanan/exclusive-softscape.html", title: "3D SoftScape Clay | Lontara Tech" },
+    "layanan/exclusive-terraform": { url: "sumber-konten/layanan/exclusive-terraform.html", title: "3D TerraForm Organic | Lontara Tech" },
+    "layanan/exclusive-holovista": { url: "sumber-konten/layanan/exclusive-holovista.html", title: "3D HoloVista | Lontara Tech" },
+    "layanan/exclusive-aureate": { url: "sumber-konten/layanan/exclusive-aureate.html", title: "3D Aureate Prestige | Lontara Tech" },
+    "layanan/exclusive-fluidity": { url: "sumber-konten/layanan/exclusive-fluidity.html", title: "3D Fluidity Abstract | Lontara Tech" },
+    "layanan/exclusive-neoblock": { url: "sumber-konten/layanan/exclusive-neoblock.html", title: "3D Neo-Block | Lontara Tech" },
+    "layanan/exclusive-mushroom": { url: "sumber-konten/layanan/exclusive-mushroom.html", title: "Animasi Mushroom Kingdom | Lontara Tech" },
+    "layanan/exclusive-supersonic": { url: "sumber-konten/layanan/exclusive-supersonic.html", title: "Animasi Supersonic Dash | Lontara Tech" },
+    "layanan/exclusive-pixel": { url: "sumber-konten/layanan/exclusive-pixel.html", title: "Animasi Pixel Craft | Lontara Tech" },
+    "layanan/exclusive-heroic": { url: "sumber-konten/layanan/exclusive-heroic.html", title: "Animasi Heroic Assemble | Lontara Tech" },
+    "layanan/exclusive-webslinger": { url: "sumber-konten/layanan/exclusive-webslinger.html", title: "Animasi Web Slinger | Lontara Tech" },
+    "layanan/exclusive-pocket": { url: "sumber-konten/layanan/exclusive-pocket.html", title: "Animasi Pocket Trainer | Lontara Tech" },
+    "layanan/exclusive-hidden": { url: "sumber-konten/layanan/exclusive-hidden.html", title: "Animasi Hidden Village | Lontara Tech" },
+    "layanan/exclusive-dragon": { url: "sumber-konten/layanan/exclusive-dragon.html", title: "Animasi Dragon Aura | Lontara Tech" },
+    "layanan/exclusive-hero": { url: "sumber-konten/layanan/exclusive-hero.html", title: "Animasi Hero of Time | Lontara Tech" },
+    "layanan/exclusive-magic": { url: "sumber-konten/layanan/exclusive-magic.html", title: "Animasi Magic Castle | Lontara Tech" }
+  }, // PENTING: Jangan hapus koma penutup ini dan pastikan blok 'init()' berada tepat di bawahnya.
 
   init() {
     console.log("Lontara SPA Engine: Berjalan Tanpa Hambatan...");
